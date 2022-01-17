@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+</head>
+
+<body>
+    <script>
+        // write your d3 code here.. 
+        console.log('d3.version:', d3.version);
+
+        // ------------------------ Exercise 1 ------------------------
+        // Answer: Version = 7.3.0
+
+    </script>
+    <!-- ------------------------ Exercise 2 ------------------------ -->
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <script>
+        d3
+            .select("p")
+            .style("color", "red")
+            .style("font-size", "32px")
+            .style("line-height", "20px")
+            .text("The paragraph below is a liar")
+            .style('font-family', "cursive")
+    </script>
+    <!-- ------------------------ Exercise 3 ------------------------ -->
+    <h3>exercise3</h3>
+    <script>
+
+        d3
+            .select('body')
+            .append('div')
+            .attr('id', 'exercise3')
+            .style('display', 'flex')
+
+        for (let i = 0; i < 10; i++) {
+
+            d3
+                .select('#exercise3')
+                .append('div')
+                .style('width', '30px')
+                .style('height', '30px')
+                .style('margin', '2px')
+                .style('background', () => i > 4 ? 'green' : 'red')
+                .style('text-align', 'center')
+                .text(i + 1)
+
+        }
+
+    </script>
+    <!-- ------------------------ Exercise 4 ------------------------ -->
+    <h3>exercise4</h3>
+    <script>
+        d3
+            .select('body')
+            .append('div')
+            .attr('id', 'exercise4')
+            .style('display', 'flex')
+
+        for (let i = 0; i < 10; i++) {
+
+            d3
+                .select('#exercise4')
+                .append('div')
+                .style('width', '30px')
+                .style('height', '30px')
+                .style('margin', '2px')
+                .style('background', () => i > 4 ? 'green' : 'red')
+                .style('text-align', 'center')
+                .attr('id', `exercise4-div-${i}`)
+                .text(i + 1)
+        }
+
+        d3
+            .select('#exercise4-div-0')
+            .style('background', 'purple')
+            .text('start')
+        d3
+            .select('#exercise4-div-1')
+            .style('width', '70px')
+        d3
+            .select('#exercise4-div-2')
+            .style('border-radius', '50px')
+        d3
+            .select('#exercise4-div-3')
+            .style('border', '2px solid pink')
+
+        // -----------------------------------------------------------You can do more
+
+    </script>
+</body>
+
+</html>
