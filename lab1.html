@@ -104,6 +104,217 @@
             .style('font-weight', 'bold');
     </script>
 
+    <!-- ------------------------ Exercise 6 ------------------------ -->
+    <h3>excerise 6</h3>
+
+    <script>
+        let otherdata = [{ name: 'test', val: 1 },
+        { name: 'other', val: 2 },
+        { name: 'b', val: 3 },
+        { name: 'color', val: 4 }]
+            ;
+
+        d3.select('body')
+            .append('div')
+            .attr('id', 'exercise6')
+
+        for (let i = 0; i < otherdata.length; i++) {
+            d3
+                .select('#exercise6')
+                .append('div')
+        }
+
+        d3.select("#exercise6")
+            .selectAll("div")
+            .data(otherdata)
+            .text(function (d, i) {
+                console.log("d.name: " + d.name);
+                console.log("d.val: " + d.val);
+                console.log("i: " + i);
+                console.log("this: " + this);
+                return 'cont:' + d.name; // return value is used to set the 'text'
+            });
+
+    </script>
+
+    <!-- ------------------------ Exercise 7 ------------------------ -->
+    <h3>excerise 7</h3>
+
+    <script>
+        let num = [10, 50, 100, 200];
+
+        d3.select('body')
+            .append('div')
+            .attr('id', 'exercise7')
+
+        // Adding 4 divs
+        for (let i = 0; i < num.length; i++) {
+            d3
+                .select('#exercise7')
+                .append('div')
+        }
+
+        d3.select("#exercise7")
+            .selectAll("div")
+            .data(num)
+            .text(function (d, i) {
+                return 'cont:' + d; // return value is used to set the 'text'
+            })
+            .style("color", function (d, i) {
+                if (d > 49 && d < 101) {
+                    return "red";
+                } else {
+                    return "yellow";
+                }
+                return 'blue';
+            });
+
+    </script>
+
+    <!-- ------------------------ Exercise 8 ------------------------ -->
+    <h3>excerise 8</h3>
+
+    <script>
+        var ex8Data = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
+
+        // Adds a div with an Id excercise8 
+        // Adds span inside #exercise8
+        d3.select("body")
+            .append('div')
+            .attr('id', 'exercise8')
+            .selectAll("span")
+            .data(ex8Data)
+            .enter()
+            .append('span')
+            .style('color', (d) => typeof (d) == 'number' ? 'green' : 'blue')
+            .style('font-weight', (d) => typeof (d) == 'number' ? 'bold' : 'regular')
+            .text(function (d, i) {
+                return d;
+            });
+    </script>
+
+    <!-- ------------------------ Exercise 9 ------------------------ -->
+    <h3>excerise 9</h3>
+    <script>
+        let ex9csv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+        /*
+        PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+        892,3,"Kelly, Mr. James",male,34.5,0,0,330911,7.8292,,Q
+        893,3,"Wilkes, Mrs. James (Ellen Needs)",female,47,1,0,363272,7,,S
+        894,2,"Myles, Mr. Thomas Francis",male,62,0,0,240276,9.6875,,Q
+        895,3,"Wirz, Mr. Albert",male,27,0,0,315154,8.6625,,S
+        */
+        let ex9Count = {
+            'Below 20': 0,
+            'Below 40': 0,
+            'Below 60': 0,
+            'Above 60': 0,
+        }
+        d3.csv(ex9csv, function (data) {
+            let prefix = data.Name.match(/[A-Za-z]+\./)[0]
+            // console.log(prefix)
+            ex9Count[prefix] = ex9Count[prefix] == null ? 1 : ex9Count[prefix] + 1
+            ex9Count[data.Sex] = ex9Count[data.Sex] == null ? 1 : ex9Count[data.Sex] + 1
+
+            if (data.Age < 20) {
+                ex9Count['Below 20']++
+            }
+            else if (data.Age < 40) {
+                ex9Count['Below 40']++
+            }
+            else if (data.Age < 60) {
+                ex9Count['Below 60']++
+            }
+            else if (data.Age > 60) {
+                ex9Count['Above 60']++
+            }
+        })
+            .then(() => {
+                const divs = d3
+                    .select('body')
+                    .append('div')
+                    .attr('id', 'exercise9')
+                    .style('display', 'flex')
+                    .selectAll('div')
+                    .data(Object.entries(ex9Count))
+                    .enter()
+                    .append('div')
+                    .style('text-align', 'center')
+                    .style('margin', '10px')
+
+                divs
+                    .append('h4')
+                    .text(d => d[0])
+                divs
+                    .append('p')
+                    .text(d => d[1])
+
+            })
+
+    </script>
+
+    <!-- ------------------------ Exercise 10 ------------------------ -->
+    <script>
+        let heartfailurecsv = 'https://raw.githubusercontent.com/akmand/datasets/master/heart_failure.csv';
+        /*
+        age,anaemia,creatinine_phosphokinase,diabetes,ejection_fraction,high_blood_pressure,platelets,serum_creatini
+        ne,serum_sodium,sex,smoking,time,DEATH_EVENT
+        75,0,582,0,20,1,265000,1.9,130,1,0,4,1
+        55,0,7861,0,38,0,263358.03,1.1,136,1,0,6,1
+        65,0,146,0,20,0,162000,1.3,129,1,1,7,1
+        50,1,111,0,20,0,210000,1.9,137,1,0,7,1
+        */
+        let ex10Count = {
+            '1-30': 0,
+            '31-40': 0,
+            '41-60': 0,
+            '61-100': 0,
+        }
+
+        d3.csv(heartfailurecsv, function (data) {
+            //console.log( data.age);
+            // todo
+            if (data.age < 31) {
+                ex10Count['1-30']++
+            }
+            else if (data.age < 41) {
+                ex10Count['31-40']++
+            }
+            else if (data.age < 61) {
+                ex10Count['41-60']++
+            }
+            else if (data.age < 101) {
+                ex10Count['61-100']++
+            }
+        }).then(() => {
+            d3
+                .select('body')
+                .append('h3')
+                .text('excerise 10')
+
+            const divs = d3
+                .select('body')
+                .append('div')
+                .attr('id', 'exercise10')
+                .style('display', 'flex')
+                .selectAll('div')
+                .data(Object.entries(ex10Count))
+                .enter()
+                .append('div')
+                .style('text-align', 'center')
+                .style('margin', '10px')
+
+            divs
+                .append('h4')
+                .text(d => d[0])
+            divs
+                .append('p')
+                .text(d => d[1])
+
+        })
+
+    </script>
+
 </body>
 
 </html>
