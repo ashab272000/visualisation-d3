@@ -194,7 +194,6 @@
     </script>
 
     <!-- ------------------------ Exercise 9 ------------------------ -->
-    <h3>excerise 9</h3>
     <script>
         let ex9csv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
         /*
@@ -230,6 +229,11 @@
             }
         })
             .then(() => {
+                d3
+                    .select('body')
+                    .append('h3')
+                    .text('excerise 9')
+
                 const divs = d3
                     .select('body')
                     .append('div')
@@ -314,6 +318,148 @@
         })
 
     </script>
+    <!-- ------------------------ Exercise 11 ------------------------ -->
+    <script>
+        //Create SVG element
+
+        d3
+            .select('body')
+            .append('h3')
+            .text('excercise 11')
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 400)
+            .attr("height", 400)
+            .style("border", '1px solid green');
+        //Create line element inside SVG
+        svg.append("line")
+            .attr("x1", 95)
+            .attr("x2", 205)
+            .attr("y1", 95)
+            .attr("y2", 95)
+            .attr("stroke", "blue")
+            .attr("stroke-width", '10px')
+        svg.append("line")
+            .attr("x1", 200)
+            .attr("x2", 200)
+            .attr("y1", 100)
+            .attr("y2", 200)
+            .attr("stroke", "pink")
+            .attr("stroke-width", '10px')
+        svg.append("line")
+            .attr("x1", 205)
+            .attr("x2", 95)
+            .attr("y1", 205)
+            .attr("y2", 205)
+            .attr("stroke", "purple")
+            .attr("stroke-width", '10px')
+
+        svg.append("line")
+            .attr("x1", 100)
+            .attr("x2", 100)
+            .attr("y1", 200)
+            .attr("y2", 100)
+            .attr("stroke", "orange")
+            .attr("stroke-width", '10px')
+    </script>
+    <!-- ------------------------ Exercise 14 ------------------------ -->
+    <style>
+        svg rect {
+            fill: blue;
+        }
+
+        svg text {
+            fill: white;
+            font: 10px sans-serif;
+            text-anchor: end;
+        }
+    </style>
+    <script>
+
+        let ex14Count = {
+            '1-30': 0,
+            '31-40': 0,
+            '41-60': 0,
+            '61-100': 0,
+        }
+
+        d3.csv(heartfailurecsv, function (data) {
+            //console.log( data.age);
+            // todo
+            if (data.age < 31) {
+                ex14Count['1-30']++
+            }
+            else if (data.age < 41) {
+                ex14Count['31-40']++
+            }
+            else if (data.age < 61) {
+                ex14Count['41-60']++
+            }
+            else if (data.age < 101) {
+                ex14Count['61-100']++
+            }
+        }).then(() => {
+            d3
+                .select("body")
+                .append("h3")
+                .text("exercise 14 & 15")
+
+            d3
+                .select("body")
+                .append("div")
+                .attr("id", "exercise14")
+
+            var data = Object.entries(ex14Count);
+            console.log("Data")
+            console.log(data)
+
+            var width = 500;
+            var scaleFactor = 2;
+            var barHeight = 20;
+
+            var graph = d3.select("#exercise14")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", barHeight * data.length);
+
+            var bar = graph.selectAll("g")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function (d, i) {
+                    return "translate(0," + i * barHeight + ")";
+                });
+
+            bar.append("rect")
+                .attr("width", function (d) {
+                    return d[1] * scaleFactor;
+                })
+                .attr("height", barHeight - 1)
+                .attr("x", 100)
+                .style('fill', (d) => d[1] > 100 ? "red" : "blue");
+
+            // Title
+            bar.append("text")
+                .attr("x", 50)
+                .attr("y", barHeight / 2)
+                .attr("dy", ".35em")
+                .style('fill', 'black')
+                .style('font-size', '16px')
+                .text((d) => d[0]);
+            // Amount
+            bar.append("text")
+                .attr("x", function (d) { return (d[1] * scaleFactor) + 100; })
+                .attr("y", barHeight / 2)
+                .attr("dy", ".35em")
+                .style('fill', 'black')
+                .style('font-size', '16px')
+                .text((d) => d[1]);
+
+
+        })
+    </script>
+
 
 </body>
 
