@@ -363,7 +363,7 @@
             .attr("stroke", "orange")
             .attr("stroke-width", '10px')
     </script>
-    <!-- ------------------------ Exercise 14 ------------------------ -->
+    <!-- ------------------------ Exercise 14 and 15 ------------------------ -->
     <style>
         svg rect {
             fill: blue;
@@ -459,7 +459,85 @@
 
         })
     </script>
+    <!-- ------------------------ Exercise 16 ------------------------ -->
+    <h3>excercise 16</h3>
+    <h4>Odd = Square & Even = Circle</h4>
+    <script>
+        const ex16width = 600;
+        const ex16height = 200;
+        const ex16data = [10, 15, 20, 25, 30];
+        // Note different valid ways of specifying color
+        const colors = ['#ffffcc', 'red', 'rgb(0,255,0)', '#31a354', '#006837'];
+        d3.select("body")
+            .append('div')
+            .attr('id', 'exercise16')
+        const ex16svg = d3.select('#exercise16')
+            .append("svg")
+            .attr("width", ex16width)
+            .attr("height", ex16height);
+        const ex16g = ex16svg.selectAll("g")
+            .data(ex16data)
+            .enter()
+            .append("g")
+            .attr("transform", function (d, i) {
+                return "translate(0,0)";
+            })
 
+        console.log("Gada")
+        console.log(ex16g)
+
+        // if even then draw circle
+        ex16g.each(((d, i) => {
+            console.log(d)
+
+            if (d % 2 == 0) {
+                console.log(true)
+                ex16g.append("circle")
+                    .attr("cx", function () {
+                        return i * 100 + 50 + (d * 1.5);
+                    })
+                    .attr("cy", function () {
+                        return 100;
+                    })
+                    .attr("r", function () {
+                        return d * 1.5;
+                    })
+                    .attr("fill", function () {
+                        return colors[i];
+                    })
+                return
+            } else {
+                console.log(false)
+                ex16g.append("rect")
+                    .attr("x", function () {
+                        return i * 100 + 50;
+                    })
+                    .attr("y", function () {
+                        return 100 - (d * 0.7);
+                    })
+                    .attr("width", function () {
+                        return d * 1.5;
+                    })
+                    .attr("height", function () {
+                        return d * 1.5;
+                    })
+                    .attr("fill", function () {
+                        return colors[i];
+                    });
+            }
+        }))
+        ex16g.append("text")
+            .attr("x", function (d, i) {
+                return i * 100 + 40;
+            })
+            .attr("y", 105)
+            .attr("stroke", "teal")
+            .attr("font-size", "12px")
+            .attr("font-family", "sans-serif")
+            .text(function (d) {
+                return d;
+            });
+    </script>
 
 </body>
 
