@@ -6,6 +6,44 @@
 </head>
 
 <body>
+    <h3>exercise1 & 2</h3>
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <!-- Functions to be used -->
+    <script>
+        // Add Exercise Div
+        const addExerciseDiv = ({ exerciseNumber, flex = false }) => {
+            let div = d3
+                .select('body')
+                .append('div')
+                .attr('id', `exercise${exerciseNumber}`)
+
+            div
+                .append('h3')
+                .text(`Exercise ${exerciseNumber}`)
+            const exerciseDiv = div.append('div').style('display', flex ? 'flex' : 'block')
+            return exerciseDiv
+        }
+        // Gets the data from Csv
+        const getCsv = async (csvUrl) => {
+            let data = []
+            await d3.csv(csvUrl, (d) => {
+                data.push(d);
+            })
+            return data
+        }
+    </script>
+
+    <!--  -->
+    <!--  -->
+    <!-- Exercises Defined as function, and will be called inside a async FunctionIFF -->
+    <script>
+
+
+
+
+    </script>
+
     <script>
         // write your d3 code here.. 
         console.log('d3.version:', d3.version);
@@ -14,183 +52,201 @@
         // Answer: Version = 7.3.0
 
     </script>
-    <!-- ------------------------ Exercise 2 ------------------------ -->
-    <p>First paragraph</p>
-    <p>Second paragraph</p>
-    <script>
-        d3
-            .select("p")
-            .style("color", "red")
-            .style("font-size", "32px")
-            .style("line-height", "20px")
-            .text("The paragraph below is a liar")
-            .style('font-family', "cursive")
-    </script>
     <!-- ------------------------ Exercise 3 ------------------------ -->
-    <h3>exercise3</h3>
     <script>
+        (async () => {
 
-        d3
-            .select('body')
-            .append('div')
-            .attr('id', 'exercise3')
-            .style('display', 'flex')
+            // ------------------------------------------ Exercise 2 ------------------------------------------
+            const exercise2 = () => {
+                d3
+                    .select("p")
+                    .style("color", "red")
+                    .style("font-size", "32px")
+                    .style("line-height", "20px")
+                    .text("The paragraph below is a liar")
+                    .style('font-family', "cursive")
+            }
 
-        for (let i = 0; i < 10; i++) {
+            // ------------------------------------------ Exercise 3 ------------------------------------------
 
-            d3
-                .select('#exercise3')
-                .append('div')
-                .style('width', '30px')
-                .style('height', '30px')
-                .style('margin', '2px')
-                .style('background', () => i > 4 ? 'green' : 'red')
-                .style('text-align', 'center')
-                .text(i + 1)
+            const exercise3 = () => {
 
-        }
+                const div = addExerciseDiv({ exerciseNumber: 3, flex: true })
 
-    </script>
-    <!-- ------------------------ Exercise 4 ------------------------ -->
-    <h3>exercise4</h3>
-    <script>
-        d3
-            .select('body')
-            .append('div')
-            .attr('id', 'exercise4')
-            .style('display', 'flex')
+                for (let i = 0; i < 10; i++) {
 
-        for (let i = 0; i < 10; i++) {
+                    div.append('div')
+                        .style('width', '30px')
+                        .style('height', '30px')
+                        .style('margin', '2px')
+                        .style('background', () => i > 4 ? 'green' : 'red')
+                        .style('text-align', 'center')
+                        .text(i + 1)
 
-            d3
-                .select('#exercise4')
-                .append('div')
-                .style('width', '30px')
-                .style('height', '30px')
-                .style('margin', '2px')
-                .style('background', () => i > 4 ? 'green' : 'red')
-                .style('text-align', 'center')
-                .attr('id', `exercise4-div-${i}`)
-                .text(i + 1)
-        }
-
-        d3
-            .select('#exercise4-div-0')
-            .style('background', 'purple')
-            .text('start')
-        d3
-            .select('#exercise4-div-1')
-            .style('width', '70px')
-        d3
-            .select('#exercise4-div-2')
-            .style('border-radius', '50px')
-        d3
-            .select('#exercise4-div-3')
-            .style('border', '2px solid pink')
-
-        // -----------------------------------------------------------You can do more
-
-    </script>
-    <!-- ------------------------ Exercise 5 ------------------------ -->
-    <h3>exercise 5</h3>
-
-    <script>
-        d3
-            .select("body")
-            .append("div")
-            .attr('id', '#exercise5')
-            .text("Hello World!")
-            .style('color', 'green')
-            .style('font-weight', 'bold');
-    </script>
-
-    <!-- ------------------------ Exercise 6 ------------------------ -->
-    <h3>excerise 6</h3>
-
-    <script>
-        let otherdata = [{ name: 'test', val: 1 },
-        { name: 'other', val: 2 },
-        { name: 'b', val: 3 },
-        { name: 'color', val: 4 }]
-            ;
-
-        d3.select('body')
-            .append('div')
-            .attr('id', 'exercise6')
-
-        for (let i = 0; i < otherdata.length; i++) {
-            d3
-                .select('#exercise6')
-                .append('div')
-        }
-
-        d3.select("#exercise6")
-            .selectAll("div")
-            .data(otherdata)
-            .text(function (d, i) {
-                console.log("d.name: " + d.name);
-                console.log("d.val: " + d.val);
-                console.log("i: " + i);
-                console.log("this: " + this);
-                return 'cont:' + d.name; // return value is used to set the 'text'
-            });
-
-    </script>
-
-    <!-- ------------------------ Exercise 7 ------------------------ -->
-    <h3>excerise 7</h3>
-
-    <script>
-        let num = [10, 50, 100, 200];
-
-        d3.select('body')
-            .append('div')
-            .attr('id', 'exercise7')
-
-        // Adding 4 divs
-        for (let i = 0; i < num.length; i++) {
-            d3
-                .select('#exercise7')
-                .append('div')
-        }
-
-        d3.select("#exercise7")
-            .selectAll("div")
-            .data(num)
-            .text(function (d, i) {
-                return 'cont:' + d; // return value is used to set the 'text'
-            })
-            .style("color", function (d, i) {
-                if (d > 49 && d < 101) {
-                    return "red";
-                } else {
-                    return "yellow";
                 }
-                return 'blue';
-            });
 
-    </script>
+            }
 
-    <!-- ------------------------ Exercise 8 ------------------------ -->
-    <h3>excerise 8</h3>
+            // ------------------------------------------ Exercise 4 ------------------------------------------
 
-    <script>
-        var ex8Data = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
+            const exercise4 = () => {
 
-        // Adds a div with an Id excercise8 
-        // Adds span inside #exercise8
-        d3.select("body")
-            .append('div')
-            .attr('id', 'exercise8')
-            .selectAll("span")
-            .data(ex8Data)
-            .enter()
-            .append('span')
-            .style('color', (d) => typeof (d) == 'number' ? 'green' : 'blue')
-            .style('font-weight', (d) => typeof (d) == 'number' ? 'bold' : 'regular')
-            .text(function (d, i) {
-                return d;
-            });
+                const div = addExerciseDiv({ exerciseNumber: 4, flex: true })
+
+                for (let i = 0; i < 10; i++) {
+
+                    div
+                        .append('div')
+                        .style('width', '30px')
+                        .style('height', '30px')
+                        .style('margin', '2px')
+                        .style('background', () => i > 4 ? 'green' : 'red')
+                        .style('text-align', 'center')
+                        .attr('id', `exercise4-div-${i}`)
+                        .text(i + 1)
+
+                }
+
+                d3
+                    .select('#exercise4-div-0')
+                    .style('background', 'purple')
+                    .text('start')
+
+                d3
+                    .select('#exercise4-div-1')
+                    .style('width', '70px')
+                d3
+                    .select('#exercise4-div-2')
+                    .style('border-radius', '50px')
+                d3
+                    .select('#exercise4-div-3')
+                    .style('border', '2px solid black')
+
+            }
+
+            // ------------------------------------------ Exercise 5 ------------------------------------------
+
+            const exercise5 = () => {
+
+                const div = addExerciseDiv({ exerciseNumber: 5 })
+
+                div
+                    .text("Hello World!")
+                    .style('color', 'green')
+                    .style('font-weight', 'bold');
+
+            }
+
+            // ------------------------------------------ Exercise 6 ------------------------------------------
+
+            const exercise6 = () => {
+
+                let otherdata = [{ name: 'test', val: 1 },
+                { name: 'other', val: 2 },
+                { name: 'b', val: 3 },
+                { name: 'color', val: 4 }];
+
+                const div = addExerciseDiv({ exerciseNumber: 6 })
+
+                for (let i = 0; i < otherdata.length; i++) {
+                    div
+                        .append('div')
+                }
+
+                div
+                    .selectAll("div")
+                    .data(otherdata)
+                    .text(function (d, i) {
+                        console.log("d.name: " + d.name);
+                        console.log("d.val: " + d.val);
+                        console.log("i: " + i);
+                        console.log("this: " + this);
+                        return 'cont:' + d.name; // return value is used to set the 'text'
+                    });
+
+
+            }
+            // ------------------------------------------ Exercise 7 ------------------------------------------
+
+            const exercise7 = () => {
+
+
+                let num = [10, 50, 100, 200];
+
+                const div = addExerciseDiv({ exerciseNumber: 7 })
+
+                // Adding 4 divs
+                for (let i = 0; i < num.length; i++) {
+                    div
+                        .append('div')
+                }
+
+                div
+                    .selectAll("div")
+                    .data(num)
+                    .text(function (d, i) {
+                        return 'cont:' + d; // return value is used to set the 'text'
+                    })
+                    .style("color", function (d, i) {
+                        if (d > 49 && d < 101) {
+                            return "red";
+                        } else {
+                            return "yellow";
+                        }
+                        return 'blue';
+                    });
+
+
+            }
+
+            // ------------------------------------------ Exercise 8 ------------------------------------------
+
+            const exercise8 = () => {
+
+                const div = addExerciseDiv({ exerciseNumber: 8 })
+
+                var data = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
+
+                // Adds a div with an Id excercise8 
+                // Adds span inside #exercise8
+                div
+                    .selectAll("span")
+                    .data(data)
+                    .enter()
+                    .append('span')
+                    .style('color', (d) => typeof (d) == 'number' ? 'green' : 'blue')
+                    .style('font-weight', (d) => typeof (d) == 'number' ? 'bold' : 'regular')
+                    .text(function (d, i) {
+                        return d;
+                    });
+
+
+            }
+
+            // ------------------------------------------ Exercise 9 ------------------------------------------
+
+            const exercise9 = async () => {
+
+                const div = addExerciseDiv({ exerciseNumber: 8 })
+
+                var data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
+
+
+            }
+
+
+
+
+            exercise2()
+            exercise3()
+            exercise4()
+            exercise5()
+            exercise6()
+            exercise7()
+            exercise8()
+
+        })()
+
     </script>
 
     <!-- ------------------------ Exercise 9 ------------------------ -->
@@ -203,57 +259,7 @@
         894,2,"Myles, Mr. Thomas Francis",male,62,0,0,240276,9.6875,,Q
         895,3,"Wirz, Mr. Albert",male,27,0,0,315154,8.6625,,S
         */
-        let ex9Count = {
-            'Below 20': 0,
-            'Below 40': 0,
-            'Below 60': 0,
-            'Above 60': 0,
-        }
-        d3.csv(ex9csv, function (data) {
-            let prefix = data.Name.match(/[A-Za-z]+\./)[0]
-            // console.log(prefix)
-            ex9Count[prefix] = ex9Count[prefix] == null ? 1 : ex9Count[prefix] + 1
-            ex9Count[data.Sex] = ex9Count[data.Sex] == null ? 1 : ex9Count[data.Sex] + 1
 
-            if (data.Age < 20) {
-                ex9Count['Below 20']++
-            }
-            else if (data.Age < 40) {
-                ex9Count['Below 40']++
-            }
-            else if (data.Age < 60) {
-                ex9Count['Below 60']++
-            }
-            else if (data.Age > 60) {
-                ex9Count['Above 60']++
-            }
-        })
-            .then(() => {
-                d3
-                    .select('body')
-                    .append('h3')
-                    .text('excerise 9')
-
-                const divs = d3
-                    .select('body')
-                    .append('div')
-                    .attr('id', 'exercise9')
-                    .style('display', 'flex')
-                    .selectAll('div')
-                    .data(Object.entries(ex9Count))
-                    .enter()
-                    .append('div')
-                    .style('text-align', 'center')
-                    .style('margin', '10px')
-
-                divs
-                    .append('h4')
-                    .text(d => d[0])
-                divs
-                    .append('p')
-                    .text(d => d[1])
-
-            })
 
     </script>
 
@@ -460,7 +466,7 @@
         })
     </script>
     <!-- ------------------------ Exercise 16 ------------------------ -->
-    <h3>excercise 16</h3>
+
     <h4>Odd = Square & Even = Circle</h4>
     <script>
         const ex16width = 600;
@@ -537,6 +543,100 @@
             .text(function (d) {
                 return d;
             });
+    </script>
+
+    <!-- ------------------------ Exercise 17 ------------------------ -->
+
+    <div id='exercise17'></div>
+    <script>
+        const data = [50, 400, 300, 900, 250, 1000]
+        const width = 500;
+        const barHeight = 20;
+        const margin = 1;
+        var scale = d3.scaleLinear()
+            .domain([d3.min(data), d3.max(data)])
+            .range([50, 500]);
+        var svg = d3.select("#exercise17")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", barHeight * data.length);
+        var g = svg.selectAll("g")
+            .data(data)
+            .enter()
+            .append("g")
+            .attr("transform", function (d, i) {
+                return "translate(0," + i * barHeight + ")";
+            });
+        g.append("rect")
+            .attr("width", function (d) {
+                return scale(d);
+            })
+            .style('fill', (d) => {
+                console.log(d)
+                if (d < 100) {
+                    return 'green'
+                } else if (d > 500) {
+                    return 'red'
+                }
+
+                return 'blue'
+
+            })
+            .attr("height", barHeight - margin)
+        g.append("text")
+            .attr("x", function (d) { return (scale(d)); })
+            .attr("y", barHeight / 2)
+            .attr("dy", ".35em")
+            .style('text-anchor', 'end')
+            .text(function (d) { return d; });
+    </script>
+    <!-- ------------------------ Exercise 17 ------------------------ -->
+
+    <div id='exercise18'></div>
+    <script>
+        (async () => {
+            let data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
+            console.log(data)
+            const width = 500;
+            const barHeight = 20;
+            const margin = 1;
+            var scale = d3.scaleLinear()
+                .domain([d3.min(data), d3.max(data)])
+                .range([50, 500]);
+            var svg = d3.select("#exercise17")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", barHeight * data.length);
+            var g = svg.selectAll("g")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function (d, i) {
+                    return "translate(0," + i * barHeight + ")";
+                });
+            g.append("rect")
+                .attr("width", function (d) {
+                    return scale(d);
+                })
+                .style('fill', (d) => {
+                    console.log(d)
+                    if (d < 100) {
+                        return 'green'
+                    } else if (d > 500) {
+                        return 'red'
+                    }
+
+                    return 'blue'
+
+                })
+                .attr("height", barHeight - margin)
+            g.append("text")
+                .attr("x", function (d) { return (scale(d)); })
+                .attr("y", barHeight / 2)
+                .attr("dy", ".35em")
+                .style('text-anchor', 'end')
+                .text(function (d) { return d; });
+        })()
     </script>
 
 </body>
