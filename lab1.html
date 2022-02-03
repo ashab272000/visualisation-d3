@@ -558,6 +558,52 @@
 
             }
 
+            const exercise17 = () => {
+                const data = [50, 400, 300, 900, 250, 1000]
+                const width = 500;
+                const barHeight = 20;
+                const margin = 1;
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 17 })
+
+                var scale = d3.scaleLinear()
+                    .domain([d3.min(data), d3.max(data)])
+                    .range([50, 500]);
+                var svg = mainDiv
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", barHeight * data.length);
+                var g = svg.selectAll("g")
+                    .data(data)
+                    .enter()
+                    .append("g")
+                    .attr("transform", function (d, i) {
+                        return "translate(0," + i * barHeight + ")";
+                    });
+                g.append("rect")
+                    .attr("width", function (d) {
+                        return scale(d);
+                    })
+                    .style('fill', (d) => {
+                        // console.log(d)
+                        if (d < 100) {
+                            return 'green'
+                        } else if (d > 500) {
+                            return 'red'
+                        }
+
+                        return 'blue'
+
+                    })
+                    .attr("height", barHeight - margin)
+                g.append("text")
+                    .attr("x", function (d) { return (scale(d)); })
+                    .attr("y", barHeight / 2)
+                    .attr("dy", ".35em")
+                    .style('text-anchor', 'end')
+                    .text(function (d) { return d; });
+            }
+
 
 
 
@@ -573,6 +619,7 @@
             exercise11()
             exercise14()
             exercise16()
+            exercise17()
 
         })()
 
@@ -593,94 +640,55 @@
 
 
     <script>
-        const data = [50, 400, 300, 900, 250, 1000]
-        const width = 500;
-        const barHeight = 20;
-        const margin = 1;
-        var scale = d3.scaleLinear()
-            .domain([d3.min(data), d3.max(data)])
-            .range([50, 500]);
-        var svg = d3.select("#exercise17")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", barHeight * data.length);
-        var g = svg.selectAll("g")
-            .data(data)
-            .enter()
-            .append("g")
-            .attr("transform", function (d, i) {
-                return "translate(0," + i * barHeight + ")";
-            });
-        g.append("rect")
-            .attr("width", function (d) {
-                return scale(d);
-            })
-            .style('fill', (d) => {
-                // console.log(d)
-                if (d < 100) {
-                    return 'green'
-                } else if (d > 500) {
-                    return 'red'
-                }
 
-                return 'blue'
-
-            })
-            .attr("height", barHeight - margin)
-        g.append("text")
-            .attr("x", function (d) { return (scale(d)); })
-            .attr("y", barHeight / 2)
-            .attr("dy", ".35em")
-            .style('text-anchor', 'end')
-            .text(function (d) { return d; });
     </script>
     <!-- ------------------------ Exercise 17 ------------------------ -->
 
     <div id='exercise18'></div>
     <script>
-        (async () => {
-            let data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
-            // console.log(data)
-            const width = 500;
-            const barHeight = 20;
-            const margin = 1;
-            var scale = d3.scaleLinear()
-                .domain([d3.min(data), d3.max(data)])
-                .range([50, 500]);
-            var svg = d3.select("#exercise17")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", barHeight * data.length);
-            var g = svg.selectAll("g")
-                .data(data)
-                .enter()
-                .append("g")
-                .attr("transform", function (d, i) {
-                    return "translate(0," + i * barHeight + ")";
-                });
-            g.append("rect")
-                .attr("width", function (d) {
-                    return scale(d);
-                })
-                .style('fill', (d) => {
-                    // console.log(d)
-                    if (d < 100) {
-                        return 'green'
-                    } else if (d > 500) {
-                        return 'red'
-                    }
+            (async () => {
+                let data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
+                // console.log(data)
+                const width = 500;
+                const barHeight = 20;
+                const margin = 1;
+                var scale = d3.scaleLinear()
+                    .domain([d3.min(data), d3.max(data)])
+                    .range([50, 500]);
+                var svg = d3.select("#exercise17")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", barHeight * data.length);
+                var g = svg.selectAll("g")
+                    .data(data)
+                    .enter()
+                    .append("g")
+                    .attr("transform", function (d, i) {
+                        return "translate(0," + i * barHeight + ")";
+                    });
+                g.append("rect")
+                    .attr("width", function (d) {
+                        return scale(d);
+                    })
+                    .style('fill', (d) => {
+                        // console.log(d)
+                        if (d < 100) {
+                            return 'green'
+                        } else if (d > 500) {
+                            return 'red'
+                        }
 
-                    return 'blue'
+                        return 'blue'
 
-                })
-                .attr("height", barHeight - margin)
-            g.append("text")
-                .attr("x", function (d) { return (scale(d)); })
-                .attr("y", barHeight / 2)
-                .attr("dy", ".35em")
-                .style('text-anchor', 'end')
-                .text(function (d) { return d; });
-        })()
+                    })
+                    .attr("height", barHeight - margin)
+                g.append("text")
+                    .attr("x", function (d) { return (scale(d)); })
+                    .attr("y", barHeight / 2)
+                    .attr("dy", ".35em")
+                    .style('text-anchor', 'end')
+                    .text(function (d) { return d; });
+            })()
     </script>
 
 </body>
