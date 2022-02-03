@@ -43,6 +43,9 @@
     <div id='exercise32'></div>
     <!-- Functions to be used -->
     <script>
+        // Constants
+        const heartfailurecsv = 'https://raw.githubusercontent.com/akmand/datasets/master/heart_failure.csv';
+
         // Add Exercise Div
         const addExerciseDiv = ({ exerciseNumber, flex = false }) => {
             let div = d3
@@ -297,8 +300,6 @@
             }
 
             const exercise10 = async () => {
-
-                let heartfailurecsv = 'https://raw.githubusercontent.com/akmand/datasets/master/heart_failure.csv';
                 /*
                 age,anaemia,creatinine_phosphokinase,diabetes,ejection_fraction,high_blood_pressure,platelets,serum_creatini
                 ne,serum_sodium,sex,smoking,time,DEATH_EVENT
@@ -352,6 +353,211 @@
 
             }
 
+            const exercise11 = () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 11 })
+
+                var svg = mainDiv
+                    .append("svg")
+                    .attr("width", 400)
+                    .attr("height", 400)
+                    .style("border", '1px solid green');
+
+                //Create line element inside SVG
+                svg.append("line")
+                    .attr("x1", 95)
+                    .attr("x2", 205)
+                    .attr("y1", 95)
+                    .attr("y2", 95)
+                    .attr("stroke", "blue")
+                    .attr("stroke-width", '10px')
+
+                svg.append("line")
+                    .attr("x1", 200)
+                    .attr("x2", 200)
+                    .attr("y1", 100)
+                    .attr("y2", 200)
+                    .attr("stroke", "pink")
+                    .attr("stroke-width", '10px')
+
+                svg.append("line")
+                    .attr("x1", 205)
+                    .attr("x2", 95)
+                    .attr("y1", 205)
+                    .attr("y2", 205)
+                    .attr("stroke", "purple")
+                    .attr("stroke-width", '10px')
+
+                svg.append("line")
+                    .attr("x1", 100)
+                    .attr("x2", 100)
+                    .attr("y1", 200)
+                    .attr("y2", 100)
+                    .attr("stroke", "orange")
+                    .attr("stroke-width", '10px')
+
+            }
+
+            const exercise14 = () => {
+
+                let countData = {
+                    '1-30': 0,
+                    '31-40': 0,
+                    '41-60': 0,
+                    '61-100': 0,
+                }
+
+                d3.csv(heartfailurecsv, function (data) {
+                    //console.log( data.age);
+                    // todo
+                    if (data.age < 31) {
+                        countData['1-30']++
+                    }
+                    else if (data.age < 41) {
+                        countData['31-40']++
+                    }
+                    else if (data.age < 61) {
+                        countData['41-60']++
+                    }
+                    else if (data.age < 101) {
+                        countData['61-100']++
+                    }
+                }).then(() => {
+
+
+                    const mainDiv = addExerciseDiv({ exerciseNumber: 14 })
+                    // Updating the text of h3
+                    d3.select('#exercise14').select('h3').text('Exercise 14 & 15')
+
+                    var data = Object.entries(countData);
+                    // console.log("Data")
+                    // console.log(data)
+
+                    var width = 500;
+                    var scaleFactor = 2;
+                    var barHeight = 20;
+
+                    var graph = mainDiv
+                        .append("svg")
+                        .attr("width", width)
+                        .attr("height", barHeight * data.length);
+
+                    var bar = graph.selectAll("g")
+                        .data(data)
+                        .enter()
+                        .append("g")
+                        .attr("transform", function (d, i) {
+                            return "translate(0," + i * barHeight + ")";
+                        });
+
+                    bar.append("rect")
+                        .attr("width", function (d) {
+                            return d[1] * scaleFactor;
+                        })
+                        .attr("height", barHeight - 1)
+                        .attr("x", 100)
+                        .style('fill', (d) => d[1] > 100 ? "red" : "blue");
+
+                    // Title
+                    bar.append("text")
+                        .attr("x", 50)
+                        .attr("y", barHeight / 2)
+                        .attr("dy", ".35em")
+                        .style('fill', 'black')
+                        .style('font-size', '16px')
+                        .text((d) => d[0]);
+                    // Amount
+                    bar.append("text")
+                        .attr("x", function (d) { return (d[1] * scaleFactor) + 100; })
+                        .attr("y", barHeight / 2)
+                        .attr("dy", ".35em")
+                        .style('fill', 'black')
+                        .style('font-size', '16px')
+                        .text((d) => d[1]);
+
+
+                })
+            }
+
+            const exercise16 = async () => {
+                const width = 600;
+                const height = 200;
+                const data = [10, 15, 20, 25, 30];
+                // Note different valid ways of specifying color
+                const colors = ['#ffffcc', 'red', 'rgb(0,255,0)', '#31a354', '#006837'];
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 16 })
+                d3.select('#exercise16').append('h4').text('Odd Number = Square, Even Number = Circle')
+
+                const svg = mainDiv
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+                const g = svg.selectAll("g")
+                    .data(data)
+                    .enter()
+                    .append("g")
+                    .attr("transform", function (d, i) {
+                        return "translate(0,0)";
+                    })
+
+                // console.log("Gada")
+                // console.log(g)
+
+                // if even then draw circle
+                g.each(((d, i) => {
+                    // console.log(d)
+
+                    if (d % 2 == 0) {
+                        // console.log(true)
+                        g.append("circle")
+                            .attr("cx", function () {
+                                return i * 100 + 50 + (d * 1.5);
+                            })
+                            .attr("cy", function () {
+                                return 100;
+                            })
+                            .attr("r", function () {
+                                return d * 1.5;
+                            })
+                            .attr("fill", function () {
+                                return colors[i];
+                            })
+                        return
+                    } else {
+                        // console.log(false)
+                        g.append("rect")
+                            .attr("x", function () {
+                                return i * 100 + 50;
+                            })
+                            .attr("y", function () {
+                                return 100 - (d * 0.7);
+                            })
+                            .attr("width", function () {
+                                return d * 1.5;
+                            })
+                            .attr("height", function () {
+                                return d * 1.5;
+                            })
+                            .attr("fill", function () {
+                                return colors[i];
+                            });
+                    }
+                }))
+                g.append("text")
+                    .attr("x", function (d, i) {
+                        return i * 100 + 40;
+                    })
+                    .attr("y", 105)
+                    .attr("stroke", "teal")
+                    .attr("font-size", "12px")
+                    .attr("font-family", "sans-serif")
+                    .text(function (d) {
+                        return d;
+                    });
+
+            }
+
 
 
 
@@ -364,57 +570,14 @@
             exercise8()
             exercise9()
             exercise10()
+            exercise11()
+            exercise14()
+            exercise16()
 
         })()
 
     </script>
 
-    </script>
-    <!-- ------------------------ Exercise 11 ------------------------ -->
-    <script>
-        //Create SVG element
-
-        d3
-            .select('body')
-            .append('h3')
-            .text('excercise 11')
-
-        var svg = d3.select("body")
-            .append("svg")
-            .attr("width", 400)
-            .attr("height", 400)
-            .style("border", '1px solid green');
-        //Create line element inside SVG
-        svg.append("line")
-            .attr("x1", 95)
-            .attr("x2", 205)
-            .attr("y1", 95)
-            .attr("y2", 95)
-            .attr("stroke", "blue")
-            .attr("stroke-width", '10px')
-        svg.append("line")
-            .attr("x1", 200)
-            .attr("x2", 200)
-            .attr("y1", 100)
-            .attr("y2", 200)
-            .attr("stroke", "pink")
-            .attr("stroke-width", '10px')
-        svg.append("line")
-            .attr("x1", 205)
-            .attr("x2", 95)
-            .attr("y1", 205)
-            .attr("y2", 205)
-            .attr("stroke", "purple")
-            .attr("stroke-width", '10px')
-
-        svg.append("line")
-            .attr("x1", 100)
-            .attr("x2", 100)
-            .attr("y1", 200)
-            .attr("y2", 100)
-            .attr("stroke", "orange")
-            .attr("stroke-width", '10px')
-    </script>
     <!-- ------------------------ Exercise 14 and 15 ------------------------ -->
     <style>
         svg rect {
@@ -427,173 +590,8 @@
             text-anchor: end;
         }
     </style>
-    <script>
-
-        let ex14Count = {
-            '1-30': 0,
-            '31-40': 0,
-            '41-60': 0,
-            '61-100': 0,
-        }
-
-        d3.csv(heartfailurecsv, function (data) {
-            //console.log( data.age);
-            // todo
-            if (data.age < 31) {
-                ex14Count['1-30']++
-            }
-            else if (data.age < 41) {
-                ex14Count['31-40']++
-            }
-            else if (data.age < 61) {
-                ex14Count['41-60']++
-            }
-            else if (data.age < 101) {
-                ex14Count['61-100']++
-            }
-        }).then(() => {
-            d3
-                .select("body")
-                .append("h3")
-                .text("exercise 14 & 15")
-
-            d3
-                .select("body")
-                .append("div")
-                .attr("id", "exercise14")
-
-            var data = Object.entries(ex14Count);
-            // console.log("Data")
-            // console.log(data)
-
-            var width = 500;
-            var scaleFactor = 2;
-            var barHeight = 20;
-
-            var graph = d3.select("#exercise14")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", barHeight * data.length);
-
-            var bar = graph.selectAll("g")
-                .data(data)
-                .enter()
-                .append("g")
-                .attr("transform", function (d, i) {
-                    return "translate(0," + i * barHeight + ")";
-                });
-
-            bar.append("rect")
-                .attr("width", function (d) {
-                    return d[1] * scaleFactor;
-                })
-                .attr("height", barHeight - 1)
-                .attr("x", 100)
-                .style('fill', (d) => d[1] > 100 ? "red" : "blue");
-
-            // Title
-            bar.append("text")
-                .attr("x", 50)
-                .attr("y", barHeight / 2)
-                .attr("dy", ".35em")
-                .style('fill', 'black')
-                .style('font-size', '16px')
-                .text((d) => d[0]);
-            // Amount
-            bar.append("text")
-                .attr("x", function (d) { return (d[1] * scaleFactor) + 100; })
-                .attr("y", barHeight / 2)
-                .attr("dy", ".35em")
-                .style('fill', 'black')
-                .style('font-size', '16px')
-                .text((d) => d[1]);
 
 
-        })
-    </script>
-    <!-- ------------------------ Exercise 16 ------------------------ -->
-
-    <h4>Odd = Square & Even = Circle</h4>
-    <script>
-        const ex16width = 600;
-        const ex16height = 200;
-        const ex16data = [10, 15, 20, 25, 30];
-        // Note different valid ways of specifying color
-        const colors = ['#ffffcc', 'red', 'rgb(0,255,0)', '#31a354', '#006837'];
-        d3.select("body")
-            .append('div')
-            .attr('id', 'exercise16')
-        const ex16svg = d3.select('#exercise16')
-            .append("svg")
-            .attr("width", ex16width)
-            .attr("height", ex16height);
-        const ex16g = ex16svg.selectAll("g")
-            .data(ex16data)
-            .enter()
-            .append("g")
-            .attr("transform", function (d, i) {
-                return "translate(0,0)";
-            })
-
-        // console.log("Gada")
-        // console.log(ex16g)
-
-        // if even then draw circle
-        ex16g.each(((d, i) => {
-            // console.log(d)
-
-            if (d % 2 == 0) {
-                // console.log(true)
-                ex16g.append("circle")
-                    .attr("cx", function () {
-                        return i * 100 + 50 + (d * 1.5);
-                    })
-                    .attr("cy", function () {
-                        return 100;
-                    })
-                    .attr("r", function () {
-                        return d * 1.5;
-                    })
-                    .attr("fill", function () {
-                        return colors[i];
-                    })
-                return
-            } else {
-                // console.log(false)
-                ex16g.append("rect")
-                    .attr("x", function () {
-                        return i * 100 + 50;
-                    })
-                    .attr("y", function () {
-                        return 100 - (d * 0.7);
-                    })
-                    .attr("width", function () {
-                        return d * 1.5;
-                    })
-                    .attr("height", function () {
-                        return d * 1.5;
-                    })
-                    .attr("fill", function () {
-                        return colors[i];
-                    });
-            }
-        }))
-        ex16g.append("text")
-            .attr("x", function (d, i) {
-                return i * 100 + 40;
-            })
-            .attr("y", 105)
-            .attr("stroke", "teal")
-            .attr("font-size", "12px")
-            .attr("font-family", "sans-serif")
-            .text(function (d) {
-                return d;
-            });
-    </script>
-
-    <!-- ------------------------ Exercise 17 ------------------------ -->
-
-    <div id='exercise17'></div>
     <script>
         const data = [50, 400, 300, 900, 250, 1000]
         const width = 500;
