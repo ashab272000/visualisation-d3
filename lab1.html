@@ -249,7 +249,7 @@
 
                 const div = addExerciseDiv({ exerciseNumber: 8 })
 
-                var data = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
+                const data = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
 
                 // Adds a div with an Id excercise8 
                 // Adds span inside #exercise8
@@ -273,9 +273,9 @@
 
                 const div = addExerciseDiv({ exerciseNumber: 9, flex: true })
 
-                var data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
+                const data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
 
-                var countData = {}
+                const countData = {}
 
                 countData['Male'] = getCountFromCSV(data, (row) => row['Sex'] == 'male')
                 countData['Female'] = getCountFromCSV(data, (row) => row['Sex'] == 'female')
@@ -357,7 +357,7 @@
 
                 const mainDiv = addExerciseDiv({ exerciseNumber: 11 })
 
-                var svg = mainDiv
+                const svg = mainDiv
                     .append("svg")
                     .attr("width", 400)
                     .attr("height", 400)
@@ -429,20 +429,20 @@
                     // Updating the text of h3
                     d3.select('#exercise14').select('h3').text('Exercise 14 & 15')
 
-                    var data = Object.entries(countData);
+                    const data = Object.entries(countData);
                     // console.log("Data")
                     // console.log(data)
 
-                    var width = 500;
-                    var scaleFactor = 2;
-                    var barHeight = 20;
+                    const width = 500;
+                    const scaleFactor = 2;
+                    const barHeight = 20;
 
-                    var graph = mainDiv
+                    const graph = mainDiv
                         .append("svg")
                         .attr("width", width)
                         .attr("height", barHeight * data.length);
 
-                    var bar = graph.selectAll("g")
+                    const bar = graph.selectAll("g")
                         .data(data)
                         .enter()
                         .append("g")
@@ -566,14 +566,14 @@
 
                 const mainDiv = addExerciseDiv({ exerciseNumber: 17 })
 
-                var scale = d3.scaleLinear()
+                const scale = d3.scaleLinear()
                     .domain([d3.min(data), d3.max(data)])
                     .range([50, 500]);
-                var svg = mainDiv
+                const svg = mainDiv
                     .append("svg")
                     .attr("width", width)
                     .attr("height", barHeight * data.length);
-                var g = svg.selectAll("g")
+                const g = svg.selectAll("g")
                     .data(data)
                     .enter()
                     .append("g")
@@ -604,6 +604,202 @@
                     .text(function (d) { return d; });
             }
 
+            const exercise18 = async () => {
+                let csvData = await getCsv('./csv/18.csv')
+                let data = []
+                csvData.forEach((d) => {
+                    data.push(parseInt(d['Values']))
+                })
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 18 })
+
+                const width = 500;
+                const barHeight = 20;
+                const margin = 1;
+                const scale = d3.scaleLinear()
+                    .domain([d3.min(data), d3.max(data)])
+                    .range([50, 500]);
+                const svg = mainDiv
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", barHeight * data.length);
+                const g = svg.selectAll("g")
+                    .data(data)
+                    .enter()
+                    .append("g")
+                    .attr("transform", function (d, i) {
+                        return "translate(0," + i * barHeight + ")";
+                    });
+                g.append("rect")
+                    .attr("width", function (d) {
+                        return scale(d);
+                    })
+                    .style('fill', (d) => {
+                        // console.log(d)
+                        if (parseInt(d) < 100) {
+                            return 'green'
+                        } else if (parseInt(d) > 500) {
+                            return 'red'
+                        }
+
+                        return 'blue'
+
+                    })
+                    .attr("height", barHeight - margin)
+                g.append("text")
+                    .attr("x", function (d) { return (scale(parseInt(d))); })
+                    .attr("y", barHeight / 2)
+                    .attr("dy", ".35em")
+                    .style('text-anchor', 'end')
+                    .text(function (d) { return d; });
+            }
+
+            const barchartData = async ({ data, element, width = 500, barHeight = 20, range = [50, 500], svg = null }) => {
+
+                const mainDiv = element;
+
+                const margin = 1;
+                const scale = d3.scaleLinear()
+                    .domain([d3.min(data), d3.max(data)])
+                    .range(range);
+                if (svg == null) {
+                    svg = mainDiv
+                        .append("svg")
+                        .attr("width", width)
+                        .attr("height", barHeight * data.length);
+                }
+                const g = svg.selectAll("g")
+                    .data(data)
+                    .enter()
+                    .append("g")
+                    .attr("transform", function (d, i) {
+                        return "translate(0," + i * barHeight + ")";
+                    });
+                g.append("rect")
+                    .attr("width", function (d) {
+                        return scale(d);
+                    })
+                    .style('fill', (d) => {
+                        // console.log(d)
+                        if (parseInt(d) < 100) {
+                            return 'green'
+                        } else if (parseInt(d) > 500) {
+                            return 'red'
+                        }
+
+                        return 'blue'
+
+                    })
+                    .attr("height", barHeight - margin)
+                g.append("text")
+                    .attr("x", function (d) { return (scale(parseInt(d))); })
+                    .attr("y", barHeight / 2)
+                    .attr("dy", ".35em")
+                    .style('text-anchor', 'end')
+                    .text(function (d) { return d; });
+
+                return svg
+
+            }
+
+            const barchartCsv = async ({ csvLink, key, element, width = 500, barHeight = 20, range = [50, 500], svg = null }) => {
+                let csvData = await getCsv(csvLink)
+                let data = []
+                csvData.forEach((d) => {
+                    data.push(parseInt(d[key]))
+                })
+
+                return barchartData({ data, element, width, barHeight, range, svg })
+            }
+
+            const exercise19 = async () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 19 })
+                mainDiv.append('h4').text("Chart 1")
+                await barchartCsv({ csvLink: './csv/19-1.csv', key: 'Value', element: mainDiv })
+                mainDiv.append('h4').text("Chart 2")
+                await barchartCsv({ csvLink: './csv/19-2.csv', key: 'Random', element: mainDiv })
+                // await barchartCsv
+            }
+
+            const exercise20 = () => {
+
+                const width = 400;
+                const height = 300;
+                const data = [10, 15, 20, 25, 30];
+                const mainDiv = addExerciseDiv({ exerciseNumber: 20 })
+
+                const svg = mainDiv
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+
+                const xscale = d3.scaleLinear()
+                    .domain([0, d3.max(data)])
+                    .range([0, width - 100]);
+
+                const yscale = d3.scaleLinear()
+                    .domain([0, d3.max(data)])
+                    .range([height / 2, 0]);
+
+                const x_axis_bottom = d3.axisBottom()
+                    .scale(xscale);
+
+                const x_axis_top = d3.axisTop()
+                    .scale(xscale);
+
+                const y_axis_left = d3.axisLeft()
+                    .scale(yscale);
+
+                const y_axis_right = d3.axisRight()
+                    .scale(yscale);
+
+                svg.append("g")
+                    .attr("transform", "translate(50, 30)")
+                    .style('stroke', 'black')
+                    .call(y_axis_left);
+
+                const axisRight = svg.append("g")
+                    .attr("transform", `translate(${50 + width - 100}, 30)`)
+                    .style('stroke', 'blue')
+                    .call(y_axis_right)
+
+                axisRight.selectAll('text')
+                    .attr('x', 20)
+
+                axisRight.selectAll('line')
+                    .style('stroke', 'blue')
+
+                axisRight.select('path')
+                    .style('stroke', 'blue')
+
+
+                const bottomTranslate = height / 2 + 30;
+                svg.append("g")
+                    .attr("transform", "translate(50, " + bottomTranslate + ")")
+                    .style('stroke', 'black')
+                    .call(x_axis_bottom);
+
+                const topTranslate = 30;
+                const axisTop = svg.append("g")
+                    .attr("transform", "translate(50, " + topTranslate + ")")
+                    .style('stroke', 'blue')
+                    .call(x_axis_top)
+
+                axisTop.selectAll('line')
+                    .style('stroke', 'blue')
+                axisTop.selectAll('path')
+                    .style('stroke', 'blue')
+            }
+
+            const exercise21 = async () => {
+                const mainDiv = addExerciseDiv({ exerciseNumber: 21 })
+
+                const svg = await barchartCsv({ csvLink: './csv/19-2.csv', key: 'Random', element: mainDiv })
+
+
+            }
+
 
 
 
@@ -620,7 +816,9 @@
             exercise14()
             exercise16()
             exercise17()
-
+            exercise18()
+            exercise19()
+            exercise20()
         })()
 
     </script>
@@ -637,59 +835,6 @@
             text-anchor: end;
         }
     </style>
-
-
-    <script>
-
-    </script>
-    <!-- ------------------------ Exercise 17 ------------------------ -->
-
-    <div id='exercise18'></div>
-    <script>
-            (async () => {
-                let data = await getCsv('https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv')
-                // console.log(data)
-                const width = 500;
-                const barHeight = 20;
-                const margin = 1;
-                var scale = d3.scaleLinear()
-                    .domain([d3.min(data), d3.max(data)])
-                    .range([50, 500]);
-                var svg = d3.select("#exercise17")
-                    .append("svg")
-                    .attr("width", width)
-                    .attr("height", barHeight * data.length);
-                var g = svg.selectAll("g")
-                    .data(data)
-                    .enter()
-                    .append("g")
-                    .attr("transform", function (d, i) {
-                        return "translate(0," + i * barHeight + ")";
-                    });
-                g.append("rect")
-                    .attr("width", function (d) {
-                        return scale(d);
-                    })
-                    .style('fill', (d) => {
-                        // console.log(d)
-                        if (d < 100) {
-                            return 'green'
-                        } else if (d > 500) {
-                            return 'red'
-                        }
-
-                        return 'blue'
-
-                    })
-                    .attr("height", barHeight - margin)
-                g.append("text")
-                    .attr("x", function (d) { return (scale(d)); })
-                    .attr("y", barHeight / 2)
-                    .attr("dy", ".35em")
-                    .style('text-anchor', 'end')
-                    .text(function (d) { return d; });
-            })()
-    </script>
 
 </body>
 
