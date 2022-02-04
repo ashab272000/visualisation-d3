@@ -854,7 +854,7 @@
 
             }
 
-            const plotGraph = ({ xSize = 600, ySize = 600, margin = 40, data, parent, svg = null }) => {
+            const plotGraph = ({ xSize = 600, ySize = 600, margin = 40, data, parent, svg = null, marker = null }) => {
                 const xMax = xSize - margin * 2;
                 const yMax = ySize - margin * 2;
                 // Get the 'limits' of the data - the full extent (mins and max)
@@ -903,8 +903,19 @@
                         .x(function (d) { return x(d.x) })
                         .y(function (d) { return y(d.y) })
                     );
+                if (marker != null) {
 
-                return svg;
+                    svg.selectAll("dot")
+                        .data(data)
+                        .enter()
+                        .append('path')
+                        .attr('d', marker)
+                        .attr('transform', (d) => `translate(${x(d.x)}, ${y(d.y)})`)
+                        .style('fill', 'red')
+
+                }
+
+                return [svg, x, y];
             }
 
             const exercise22 = () => {
@@ -946,11 +957,74 @@
                 for (let i = 0; i < numPoints; i++) { dataSin.push({ x: i / 100, y: Math.sin(6.2 * i / 100) }); }
 
 
-                const svg = plotGraph({ data: dataCos, parent: mainDiv })
+                const svg = plotGraph({ data: dataCos, parent: mainDiv })[0]
                 plotGraph({ data: dataSin, svg })
             }
 
             const exercise25 = () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 25 });
+
+                const numPoints = 100;
+                const dataCos = [];
+                for (let i = 0; i < numPoints; i++) { dataCos.push({ x: i / 100, y: Math.cos(6.2 * i / 100) }); }
+                // const dataSin = [];
+                // for (let i = 0; i < numPoints; i++) { dataSin.push({ x: i / 100, y: Math.sin(6.2 * i / 100) }); }
+
+
+                plotGraph({ data: dataCos, parent: mainDiv, marker: d3.symbol().size(10) })
+                // plotGraph({ data: dataSin, svg })
+
+            }
+
+            const exercise26 = () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 26 });
+
+                const numPoints = 100;
+                const dataCos = [];
+                for (let i = 0; i < numPoints; i++) { dataCos.push({ x: i / 100, y: Math.cos(6.2 * i / 100) }); }
+                const dataSin = [];
+                for (let i = 0; i < numPoints; i++) { dataSin.push({ x: i / 100, y: Math.sin(6.2 * i / 100) }); }
+
+
+
+                const svg = plotGraph({ data: dataCos, parent: mainDiv, marker: d3.symbol().size(10) })[0]
+
+                plotGraph({ data: dataSin, svg, marker: d3.symbol(d3.symbolTriangle, 20) })
+            }
+
+            const exercise27 = () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 27 });
+
+                const numPoints = 100;
+                const dataCos = [];
+                for (let i = 0; i < numPoints; i++) { dataCos.push({ x: i / 100, y: Math.cos(6.2 * i / 100) }); }
+                const dataSin = [];
+                for (let i = 0; i < numPoints; i++) { dataSin.push({ x: i / 100, y: Math.sin(6.2 * i / 100) }); }
+
+
+                let graph = plotGraph({ data: dataCos, parent: mainDiv, marker: d3.symbol().size(10), includeText: true })
+                let svg = graph[0]
+                let x = graph[1]
+                let y = graph[2]
+                console.log(svg)
+
+                svg.append('g')
+                    .selectAll('text')
+                    .data([12, 24, 35, 50, 65, 76, 88].map((i) => dataCos[i]))
+                    // .data(dataCos)
+                    .enter()
+                    .append('text')
+                    .text((d, i) => { console.log(i); return `(${d.x.toFixed(2)}, ${d.y.toFixed(2)})` })
+                    // .attr('transform', (d) => `translate(${x(d.x)}, ${y(d.y)})`)
+                    .attr('transform', (d) => `translate(${x(d.x) - 10}, ${y(d.y)})`)
+                    .attr('id', (d, i) => `gada${i}`)
+                    .attr('fill', 'black')
+                    .style('fill', 'black')
+
+                // plotGraph({ data: dataSin, svg, marker: d3.symbol(d3.symbolTriangle, 20) })
 
             }
 
@@ -976,6 +1050,9 @@
             exercise22()
             exercise23()
             exercise24()
+            exercise25()
+            exercise26()
+            exercise27()
         })()
 
     </script>
