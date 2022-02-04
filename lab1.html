@@ -666,7 +666,7 @@
                     .text(function (d) { return d; });
             }
 
-            const barchartData = async ({ data, element, width = 500, barHeight = 20, range = [50, 500], x = 0, svg = null }) => {
+            const barchartData = async ({ data, element, width = 500, barHeight = 20, range = [50, 500], x = 0, svg = null, fillColor }) => {
 
                 const mainDiv = element;
 
@@ -692,6 +692,10 @@
                         return scale(d);
                     })
                     .style('fill', (d) => {
+                        if (fillColor) {
+                            return fillColor(d)
+
+                        }
                         // console.log(d)
                         if (parseInt(d) < 100) {
                             return 'green'
@@ -1028,6 +1032,17 @@
 
             }
 
+            const exercise28 = async () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 28 })
+                const csvData = await getCsv('./csv/19-1.csv')
+                const data = getArrayFromCsv(csvData, 'Value', parseInt)
+                const myColor = d3.scaleSequential().domain([0, 800]).interpolator(d3.interpolateViridis);
+
+                barchartData({ data, element: mainDiv, fillColor: (value) => myColor(value) })
+
+            }
+
 
 
             exercise2()
@@ -1053,6 +1068,7 @@
             exercise25()
             exercise26()
             exercise27()
+            exercise28()
         })()
 
     </script>
