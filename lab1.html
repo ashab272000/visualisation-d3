@@ -76,6 +76,18 @@
 
             return count
         }
+
+        const getArrayFromCsv = (csvData, key, parseDataFunc) => {
+
+            let data = []
+            csvData.forEach((d) => {
+
+                data.push(parseDataFunc(d[key]))
+            })
+
+            return data
+        }
+
     </script>
 
     <!--  -->
@@ -654,7 +666,7 @@
                     .text(function (d) { return d; });
             }
 
-            const barchartData = async ({ data, element, width = 500, barHeight = 20, range = [50, 500], svg = null }) => {
+            const barchartData = async ({ data, element, width = 500, barHeight = 20, range = [50, 500], x = 0, svg = null }) => {
 
                 const mainDiv = element;
 
@@ -673,7 +685,7 @@
                     .enter()
                     .append("g")
                     .attr("transform", function (d, i) {
-                        return "translate(0," + i * barHeight + ")";
+                        return "translate(" + x + "," + i * barHeight + ")";
                     });
                 g.append("rect")
                     .attr("width", function (d) {
@@ -795,11 +807,152 @@
             const exercise21 = async () => {
                 const mainDiv = addExerciseDiv({ exerciseNumber: 21 })
 
-                const svg = await barchartCsv({ csvLink: './csv/19-2.csv', key: 'Random', element: mainDiv })
+                let csvData = await getCsv('./csv/19-1.csv')
+                let data = []
+                csvData.forEach((d) => {
+                    data.push(parseInt(d['Value']))
+                })
+
+                let width = 500;
+                let barHeight = 20;
+                let height = 20 * data.length
+                let viewHeight = height + 50
+
+
+
+                const svg = await barchartData({ data, element: mainDiv, width, range: [0, width], barHeight, x: 20 })
+                svg
+                    .attr("height", height + 50)
+                svg
+                    .attr("width", width + 20)
+
+                const xscale = d3.scaleLinear()
+                    .domain([d3.min(data), d3.max(data)])
+                    .range([0, width]);
+
+                const yscale = d3.scaleLinear()
+                    .domain([0, data.length])
+                    .range([height, 0]);
+
+                const x_axis_bottom = d3.axisBottom()
+                    .scale(xscale);
+
+                const y_axis_left = d3.axisLeft()
+                    .scale(yscale);
+
+                svg.append("g")
+                    .attr("transform", `translate(20,${height})`)
+                    .style('stroke', 'black')
+                    .call(x_axis_bottom);
+
+
+                svg.append("g")
+                    .attr("transform", "translate(20, 0)")
+                    .style('stroke', 'black')
+                    .call(y_axis_left);
 
 
             }
 
+            const plotGraph = ({ xSize = 600, ySize = 600, margin = 40, data, parent, svg = null }) => {
+                const xMax = xSize - margin * 2;
+                const yMax = ySize - margin * 2;
+                // Get the 'limits' of the data - the full extent (mins and max)
+                // so the plotted data fits perfectly 
+                const xExtent = d3.extent(data, d => { return d.x });
+                const yExtent = d3.extent(data, d => { return d.y });
+                // Append SVG Object to the Page
+                if (svg == null) {
+                    svg = parent
+                        .append("svg")
+                        .attr('width', xSize)
+                        .attr('height', ySize)
+                        .append("g")
+                        .attr("transform", `translate(${margin}, ${margin})`);
+                }
+                // X Axis
+                const x = d3.scaleLinear()
+                    .domain([xExtent[0], xExtent[1]])
+                    .range([0, xMax]);
+                // bottom
+                svg.append("g")
+                    .attr("transform", `translate(0, ${yMax})`)
+                    .call(d3.axisBottom(x))
+                    .attr('color', 'green'); // make bottom axis green
+                // top
+                svg.append("g")
+                    .call(d3.axisTop(x));
+                // Y Axis
+                const y = d3.scaleLinear()
+                    .domain([yExtent[0], yExtent[1]])
+                    .range([yMax, 0]);
+                // left y axis
+                svg.append("g")
+                    .call(d3.axisLeft(y));
+                // right y axis
+                svg.append("g")
+                    .attr("transform", `translate(${yMax},0)`)
+                    .call(d3.axisRight(y));
+                // Add the line
+                svg.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "steelblue")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function (d) { return x(d.x) })
+                        .y(function (d) { return y(d.y) })
+                    );
+
+                return svg;
+            }
+
+            const exercise22 = () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 22 });
+
+                // Create Random Points
+                const numPoints = 100;
+                const data = [];
+                for (let i = 0; i < numPoints; i++) { data.push({ x: i / 100, y: Math.cos(6.2 * i / 100) }); }
+
+                plotGraph({ data, parent: mainDiv })
+            }
+
+            const exercise23 = async () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 23 });
+
+                const csvData = await getCsv(heartfailurecsv)
+                const dataX = await getArrayFromCsv(csvData, 'age', parseInt)
+                const dataY = await getArrayFromCsv(csvData, 'serum_sodium', parseInt)
+                const data = []
+                for (let i = 0; i < dataX.length; i++) {
+                    data.push({ x: dataX[i], y: dataY[i] })
+                }
+
+
+                plotGraph({ data, parent: mainDiv })
+            }
+
+            const exercise24 = async () => {
+
+                const mainDiv = addExerciseDiv({ exerciseNumber: 24 });
+
+                const numPoints = 100;
+                const dataCos = [];
+                for (let i = 0; i < numPoints; i++) { dataCos.push({ x: i / 100, y: Math.cos(6.2 * i / 100) }); }
+                const dataSin = [];
+                for (let i = 0; i < numPoints; i++) { dataSin.push({ x: i / 100, y: Math.sin(6.2 * i / 100) }); }
+
+
+                const svg = plotGraph({ data: dataCos, parent: mainDiv })
+                plotGraph({ data: dataSin, svg })
+            }
+
+            const exercise25 = () => {
+
+            }
 
 
 
@@ -819,6 +972,10 @@
             exercise18()
             exercise19()
             exercise20()
+            exercise21()
+            exercise22()
+            exercise23()
+            exercise24()
         })()
 
     </script>
