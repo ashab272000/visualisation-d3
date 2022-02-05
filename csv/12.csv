@@ -1,0 +1,6 @@
+shape,x,y,width,height,color,value
+rect,0,0,200,100,pink,
+circle,200,100,50,50,red
+ellipse,250,200,150,50,grey
+text,150,50,,,,Hello World
+

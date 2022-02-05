@@ -94,13 +94,6 @@
     <!--  -->
     <!-- Exercises Defined as function, and will be called inside a async FunctionIFF -->
     <script>
-
-
-
-
-    </script>
-
-    <script>
         // write your d3 code here.. 
         console.log('d3.version:', d3.version);
 
@@ -110,7 +103,12 @@
     </script>
     <!-- ------------------------ Exercise 3 ------------------------ -->
     <script>
+
+
+
         (async () => {
+
+
 
             // ------------------------------------------ Exercise 2 ------------------------------------------
             const exercise2 = () => {
@@ -119,7 +117,7 @@
                     .style("color", "red")
                     .style("font-size", "32px")
                     .style("line-height", "20px")
-                    .text("The paragraph below is a liar")
+                    .text("Hello World")
                     .style('font-family', "cursive")
             }
 
@@ -407,6 +405,54 @@
                     .attr("y2", 100)
                     .attr("stroke", "orange")
                     .attr("stroke-width", '10px')
+
+            }
+
+            const createShape = (svg, data) => {
+                let ob = null
+                console.log('data')
+                console.log(data)
+                if (data.shape == 'rect') {
+                    ob = svg.append('rect')
+                        .attr('x', data.x)
+                        .attr('y', data.y)
+                        .attr('width', data.width)
+                        .attr('height', data.height)
+                } else if (data.shape == "circle") {
+                    ob = svg.append('circle')
+                        .attr('cx', data.x)
+                        .attr('cy', data.y)
+                        .attr('r', data.width)
+
+                } else if (data.shape == "ellipse") {
+                    ob = svg.append('ellipse')
+                        .attr('cx', data.x)
+                        .attr('cy', data.y)
+                        .attr('rx', data.width)
+                        .attr('ry', data.height)
+                } else if (data.shape == "text") {
+                    ob = svg.append('text')
+                        .attr('x', data.x)
+                        .attr('y', data.y)
+                        .text(data.value)
+                }
+                data.color ? ob.attr('fill', data.color) : null;
+            }
+
+            const exercise12 = async () => {
+                const mainDiv = addExerciseDiv({ exerciseNumber: 12 })
+                const csvData = await getCsv('./csv/12.csv')
+                const svg = mainDiv.append("svg")
+                    .attr("width", 400)
+                    .attr("height", 400)
+                    .style("border", '1px solid green')
+
+                svg.select('.elements')
+                    .data(csvData)
+                    .enter()
+                    .each((d) => { createShape(svg, d) })
+                    .exit()
+                    .remove()
 
             }
 
@@ -1211,6 +1257,7 @@
             exercise9()
             exercise10()
             exercise11()
+            exercise12()
             exercise14()
             exercise16()
             exercise17()
