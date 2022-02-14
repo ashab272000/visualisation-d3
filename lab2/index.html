@@ -1,0 +1,245 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab2 - DV - mu15</title>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+</head>
+
+<!-- Only keyframes -->
+
+
+<body>
+    <div id='exercise1'></div>
+    <div id='exercise2'></div>
+    <div id='exercise3'></div>
+    <div id='exercise4'></div>
+    <div id='exercise5'></div>
+    <div id='exercise6'></div>
+    <div id='exercise7'></div>
+    <div id='exercise8'></div>
+    <div id='exercise9'></div>
+    <div id='exercise10'></div>
+    <div id='exercise11'></div>
+    <div id='exercise12'></div>
+    <div id='exercise13'></div>
+    <div id='exercise14'></div>
+    <div id='exercise15'></div>
+    <div id='exercise16'></div>
+    <div id='exercise17'></div>
+    <div id='exercise18'></div>
+    <div id='exercise19'></div>
+    <div id='exercise20'></div>
+    <div id='exercise21'></div>
+    <div id='exercise22'></div>
+    <div id='exercise23'></div>
+    <div id='exercise24'></div>
+    <div id='exercise25'></div>
+    <div id='exercise26'></div>
+    <div id='exercise27'></div>
+    <div id='exercise28'></div>
+    <div id='exercise29'></div>
+    <div id='exercise30'></div>
+    <div id='exercise31'></div>
+    <div id='exercise32'></div>
+
+    <!-- Reusable Functions -->
+    <script>
+        const addExerciseDiv = ({ exerciseNumber, flex = false }) => {
+            let div = d3
+                .select(`#exercise${exerciseNumber}`)
+
+            div
+                .append('h3')
+                .text(`Exercise ${exerciseNumber}`)
+            // The new div
+            const exerciseDiv = div.append('div').style('display', flex ? 'flex' : 'block')
+            return exerciseDiv
+        }
+
+        // Gets the data from Csv
+        // And formats into an array from readable stream
+        const getCsv = async (csvUrl) => {
+            let data = []
+            await d3.csv(csvUrl, (d) => {
+                data.push(d);
+            })
+            return data
+        }
+
+        // Gets count from csv with a specific condition
+        const getCountFromCSV = (data, condition) => {
+            let count = 0;
+            data.forEach((row) => {
+                count += (condition(row) ? 1 : 0)
+            })
+
+            return count
+        }
+
+        // Get all the values of a key from the data
+        // Has an extra callback function for parsing the data 
+        // For example, parseInt
+        const getArrayFromCsv = (csvData, key, parseDataFunc = (d) => { return d }) => {
+
+            let data = []
+            csvData.forEach((d) => {
+
+                data.push(parseDataFunc(d[key]))
+            })
+
+            return data
+        }
+
+        // Plots graph
+        const plotGraph = ({ xSize = 600,
+            ySize = 600,
+            margin = 40,
+            data,
+            parent,
+            svg = null,
+            color = null,
+        }) => {
+
+            const xMax = xSize - margin * 2;
+            const yMax = ySize - margin * 2;
+            // Get the 'limits' of the data - the full extent (mins and max)
+            // so the plotted data fits perfectly 
+            const xExtent = d3.extent(data, d => { return d.x });
+            const yExtent = d3.extent(data, d => { return d.y });
+            // Append SVG Object to the Page
+            if (svg == null) {
+                svg = parent
+                    .append("svg")
+                    .attr('width', xSize)
+                    .attr('height', ySize)
+                    .append("g")
+                    .attr("transform", `translate(${margin}, ${margin})`);
+            }
+            // X Axis
+            const x = d3.scaleLinear()
+                .domain([xExtent[0], xExtent[1]])
+                .range([0, xMax]);
+            // bottom
+            svg.append("g")
+                .attr("transform", `translate(0, ${yMax})`)
+                .call(d3.axisBottom(x))
+                .attr('color', 'green'); // make bottom axis green
+            // top
+            svg.append("g")
+                .call(d3.axisTop(x));
+            // Y Axis
+            const y = d3.scaleLinear()
+                .domain([yExtent[0], yExtent[1]])
+                .range([yMax, 0]);
+            // left y axis
+            svg.append("g")
+                .call(d3.axisLeft(y));
+            // right y axis
+            svg.append("g")
+                .attr("transform", `translate(${yMax},0)`)
+                .call(d3.axisRight(y));
+            // Add the line
+            if (color != null) {
+
+                let id = (Math.random() + 1).toString(36).substring(2);
+                svg.append("linearGradient")
+                    .attr('id', id)
+                    .attr("gradientUnits", "userSpaceOnUse")
+                    // .attr("gradientTransform", "rotate(90)")
+                    .attr("x1", 0)
+                    .attr("x2", 0)
+                    .attr("y1", y(0))
+                    .attr("y2", ySize)
+                    .selectAll("stop")
+                    .data([...Array(100).keys()])
+                    .enter()
+                    .append("stop")
+                    .attr("offset", d => d + '%')
+                    .attr("stop-color", d => color(d));
+
+                svg.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", `url(#${id})`)
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function (d) { return x(d.x) })
+                        .y(function (d) { return y(d.y) })
+                    );
+            } else {
+                svg.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "steelblue")
+                    .attr("stroke-width", 1.5)
+                    .attr("d", d3.line()
+                        .x(function (d) { return x(d.x) })
+                        .y(function (d) { return y(d.y) })
+                    );
+            }
+
+            return [svg, x, y];
+        }
+    </script>
+
+    <!-- Exercise Function -->
+    <script>
+        (async () => {
+            const exercise1 = () => {
+                const div = addExerciseDiv({ exerciseNumber: 1 });
+
+                // Generate Data
+                const numPoints = 100;
+                const dataCos = [];
+                for (let i = 0; i < numPoints; i++) { dataCos.push({ x: i / 100, y: Math.cos(6.2 * i / 100) }); }
+
+                // Assign size for the graph
+                const xSize = 600;
+                const ySize = 600;
+                const margin = 30;
+                const [svg, xScaled, yScaled] = plotGraph({ data: dataCos, parent: div })
+                // Add dots to the graph points with pulse class 
+
+                svg.selectAll("dot")
+                    .data(dataCos)
+                    .enter()
+                    .append('path')
+                    .attr('d', d3.symbol().size(20))
+                    .attr('transform', (d) => `translate(${xScaled(d.x)}, ${yScaled(d.y)})`)
+                    .style('fill', 'red')
+                    .on('mouseover', function (e) {
+                        const pulse = () => {
+                            d3.select(this)
+                                .style('stroke', 'purple')
+                                .transition().duration(200)
+                                .attr('transform', (d) => `translate(${xScaled(d.x)}, ${yScaled(d.y)}) scale(1.3, 1.3)`)
+                                .transition().duration(200)
+                                .attr('transform', (d) => `translate(${xScaled(d.x)}, ${yScaled(d.y)}) scale(1, 1)`)
+                                .on('end', pulse)
+                        }
+                        pulse()
+
+                    })
+                    .on('mouseout', function (e) {
+                        d3.select(this)
+                            .style('stroke', null)
+                            .attr('transform', (d) => `translate(${xScaled(d.x)}, ${yScaled(d.y)}) scale(1, 1)`)
+                            .transition()
+                    })
+
+
+
+            }
+
+
+
+            // Calling The exercises
+            exercise1()
+        })()
+    </script>
+</body>
+
+</html>

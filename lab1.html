@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <!-- Added Divs for organizing all the exercises -->
     <h3>exercise1 & 2</h3>
     <p>First paragraph</p>
     <p>Second paragraph</p>
@@ -47,6 +48,9 @@
         const heartfailurecsv = 'https://raw.githubusercontent.com/akmand/datasets/master/heart_failure.csv';
 
         // Add Exercise Div
+        // Selects the exercise div mentioned above 
+        // Adds an Exercise header and another div where all the exercise elements will be added 
+        // The new div will be returned
         const addExerciseDiv = ({ exerciseNumber, flex = false }) => {
             let div = d3
                 .select(`#exercise${exerciseNumber}`)
@@ -54,10 +58,13 @@
             div
                 .append('h3')
                 .text(`Exercise ${exerciseNumber}`)
+            // The new div
             const exerciseDiv = div.append('div').style('display', flex ? 'flex' : 'block')
             return exerciseDiv
         }
+
         // Gets the data from Csv
+        // And formats into an array from readable stream
         const getCsv = async (csvUrl) => {
             let data = []
             await d3.csv(csvUrl, (d) => {
@@ -66,18 +73,20 @@
             return data
         }
 
-        // Gets count from csv
+        // Gets count from csv with a specific condition
         const getCountFromCSV = (data, condition) => {
             let count = 0;
             data.forEach((row) => {
                 count += (condition(row) ? 1 : 0)
             })
-            // count += condition(data[data.length - 1]) ? 1 : 0
 
             return count
         }
 
-        const getArrayFromCsv = (csvData, key, parseDataFunc) => {
+        // Get all the values of a key from the data
+        // Has an extra callback function for parsing the data 
+        // For example, parseInt
+        const getArrayFromCsv = (csvData, key, parseDataFunc = (d) => { return d }) => {
 
             let data = []
             csvData.forEach((d) => {
@@ -101,7 +110,6 @@
         // Answer: Version = 7.3.0
 
     </script>
-    <!-- ------------------------ Exercise 3 ------------------------ -->
     <script>
 
 
@@ -127,6 +135,7 @@
 
                 const div = addExerciseDiv({ exerciseNumber: 3, flex: true })
 
+                // Add the divs
                 for (let i = 0; i < 10; i++) {
 
                     div.append('div')
@@ -147,6 +156,7 @@
 
                 const div = addExerciseDiv({ exerciseNumber: 4, flex: true })
 
+                // Add the divs with ids
                 for (let i = 0; i < 10; i++) {
 
                     div
@@ -161,6 +171,7 @@
 
                 }
 
+                // Select the divs with thier ids to style them
                 d3
                     .select('#exercise4-div-0')
                     .style('background', 'purple')
@@ -211,10 +222,10 @@
                     .selectAll("div")
                     .data(otherdata)
                     .text(function (d, i) {
-                        console.log("d.name: " + d.name);
-                        console.log("d.val: " + d.val);
-                        console.log("i: " + i);
-                        console.log("this: " + this);
+                        // console.log("d.name: " + d.name);
+                        // console.log("d.val: " + d.val);
+                        // console.log("i: " + i);
+                        // console.log("this: " + this);
                         return 'cont:' + d.name; // return value is used to set the 'text'
                     });
 
@@ -261,8 +272,7 @@
 
                 const data = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
 
-                // Adds a div with an Id excercise8 
-                // Adds span inside #exercise8
+                // Adds the all the values of the data array as span
                 div
                     .selectAll("span")
                     .data(data)
@@ -1055,6 +1065,10 @@
 
                 plotGraph({ data: dataCos, parent: mainDiv, marker: d3.symbol().size(10) })
                 // plotGraph({ data: dataSin, svg })
+
+                svg
+                    .selectAll('dot')
+                    .style()
 
             }
 
