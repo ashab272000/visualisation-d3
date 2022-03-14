@@ -1,0 +1,456 @@
+location,date,vaccine,source_url,total_vaccinations,people_vaccinated,people_fully_vaccinated,total_boosters
+United States,2020-12-13,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,29430,24506,5662,0
+United States,2020-12-14,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,33992,28909,5781,0
+United States,2020-12-15,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,83686,76274,6041,0
+United States,2020-12-16,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,243463,230662,6513,0
+United States,2020-12-17,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,515903,495984,7257,0
+United States,2020-12-18,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,932047,903577,8466,0
+United States,2020-12-19,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,1113825,1081431,9519,0
+United States,2020-12-20,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,1219028,1184699,10220,0
+United States,2020-12-21,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,1600707,1559850,11706,0
+United States,2020-12-22,Pfizer/BioNTech,https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,2048144,1998799,14575,0
+United States,2020-12-23,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,2622966,2561175,17495,0
+United States,2020-12-24,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,2818837,2752041,18589,0
+United States,2020-12-25,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,2831484,2764536,18690,0
+United States,2020-12-26,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,2973357,2902469,19656,0
+United States,2020-12-27,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,3070034,2995869,20373,0
+United States,2020-12-28,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,3660672,3572178,24532,0
+United States,2020-12-29,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,4382263,4274766,29748,0
+United States,2020-12-30,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,5225150,5097869,37490,0
+United States,2020-12-31,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,5645277,5508057,40617,0
+United States,2021-01-01,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,5746756,5600067,47308,0
+United States,2021-01-02,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,6011033,5855496,50151,0
+United States,2021-01-03,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,6149842,5987308,52594,0
+United States,2021-01-04,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,6806798,6585084,98323,0
+United States,2021-01-05,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,7637851,7314302,186722,0
+United States,2021-01-06,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,8658718,8144828,358979,0
+United States,2021-01-07,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,9828382,9010990,639677,0
+United States,2021-01-08,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,11064367,9858230,1002865,0
+United States,2021-01-09,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,11573130,10228577,1131437,0
+United States,2021-01-10,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,11824132,10404876,1200963,0
+United States,2021-01-11,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,12894382,11128332,1523432,0
+United States,2021-01-12,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,14152275,12044832,1837719,0
+United States,2021-01-13,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,15475552,13074113,2108071,0
+United States,2021-01-14,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,16791466,14230580,2243737,0
+United States,2021-01-15,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,18047731,15346767,2364229,0
+United States,2021-01-16,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,18696740,15912723,2436128,0
+United States,2021-01-17,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,19001687,16168306,2478173,0
+United States,2021-01-18,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,19885938,16806450,2705876,0
+United States,2021-01-19,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,21231846,17771517,3062161,0
+United States,2021-01-20,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,22833725,18924978,3482936,0
+United States,2021-01-21,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,24463739,20254250,3757550,0
+United States,2021-01-22,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,26090639,21646292,3966958,0
+United States,2021-01-23,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,26997189,22388702,4117638,0
+United States,2021-01-24,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,27392079,22688273,4205946,0
+United States,2021-01-25,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,28764366,23547686,4695241,0
+United States,2021-01-26,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,30425173,24599820,5277050,0
+United States,2021-01-27,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,32356085,25849596,5925167,0
+United States,2021-01-28,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,34316640,27218503,6483155,0
+United States,2021-01-29,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,36229709,28590058,6979138,0
+United States,2021-01-30,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,37247214,29347766,7221668,0
+United States,2021-01-31,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,37706438,29669486,7348908,0
+United States,2021-02-01,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,39088304,30437658,7921376,0
+United States,2021-02-02,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,40783071,31399295,8620803,0
+United States,2021-02-03,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,42919874,32657915,9455376,0
+United States,2021-02-04,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,45264120,34045115,10368176,0
+United States,2021-02-05,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,47618233,35399220,11328891,0
+United States,2021-02-06,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,48917966,36250604,11750832,0
+United States,2021-02-07,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,49361693,36527138,11907522,0
+United States,2021-02-08,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,50939778,37363680,12612182,0
+United States,2021-02-09,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,52912487,38399973,13507403,0
+United States,2021-02-10,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,55215265,39627680,14542819,0
+United States,2021-02-11,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,57619841,40903007,15631722,0
+United States,2021-02-12,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,60202905,42280357,16788407,0
+United States,2021-02-13,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,61675094,43148319,17359289,0
+United States,2021-02-14,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,62266653,43494172,17588207,0
+United States,2021-02-15,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,63443615,44103525,18122515,0
+United States,2021-02-16,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,65063984,44899760,18909610,0
+United States,2021-02-17,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,67027820,45832493,19898595,0
+United States,2021-02-18,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,68883668,46665584,20872275,0
+United States,2021-02-19,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,70849509,47488843,21967118,0
+United States,2021-02-20,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,72154418,48085052,22647001,0
+United States,2021-02-21,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,72749207,48338968,22970086,0
+United States,2021-02-22,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,74209808,48955623,23771464,0
+United States,2021-02-23,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,76145540,49821334,24795869,0
+United States,2021-02-24,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,78670958,51065624,26028116,0
+United States,2021-02-25,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,81607052,52601870,27367601,0
+United States,2021-02-26,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,84719097,54273947,28748442,0
+United States,2021-02-27,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,86712989,55414136,29564466,0
+United States,2021-02-28,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,87567499,55948514,29858974,0
+United States,2021-03-01,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,89614199,57144729,30651692,0
+United States,2021-03-02,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,92075951,58607177,31610909,0
+United States,2021-03-03,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,94976790,60348163,32732007,0
+United States,2021-03-04,"Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,98178337,62303631,33974338,0
+United States,2021-03-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,101405244,64306371,35279356,0
+United States,2021-03-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,103462672,65656221,36141032,0
+United States,2021-03-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,104386596,66333274,36483644,0
+United States,2021-03-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,106549504,67814764,37333834,0
+United States,2021-03-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,109254875,69622755,38413330,0
+United States,2021-03-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,112377465,71684565,39680464,0
+United States,2021-03-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,115815275,73960867,41078225,0
+United States,2021-03-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,119240731,76077469,42605118,0
+United States,2021-03-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,121429679,77461816,43621511,0
+United States,2021-03-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,122412762,78109588,44047551,0
+United States,2021-03-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,124692883,79606463,44915647,0
+United States,2021-03-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,127578863,81535808,45963069,0
+United States,2021-03-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,130745542,83662711,47092035,0
+United States,2021-03-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,134145957,85957170,48295402,0
+United States,2021-03-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,137482568,88170413,49517409,0
+United States,2021-03-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,139636993,89580897,50376543,0
+United States,2021-03-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,140655599,90263630,50747405,0
+United States,2021-03-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,143018714,91867205,51553519,0
+United States,2021-03-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,146082264,93849282,52704248,0
+United States,2021-03-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,149637827,96057070,54125581,0
+United States,2021-03-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,153472314,98323457,55771823,0
+United States,2021-03-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,157301214,100427787,57570753,0
+United States,2021-03-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,159773369,101798536,58733992,0
+United States,2021-03-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,160982775,102469838,59284574,0
+United States,2021-03-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,163819997,104077709,60558008,0
+United States,2021-03-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,167411165,106090303,62217955,0
+United States,2021-03-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,171580707,108501688,64155921,0
+United States,2021-04-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,176130288,111028876,66394323,0
+United States,2021-04-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,179784310,113086245,68209140,0
+United States,2021-04-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,182083786,114409949,69366638,0
+United States,2021-04-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,182846545,114847431,69737704,0
+United States,2021-04-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,185949689,116581217,71338039,0
+United States,2021-04-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,189925991,118869463,73416051,0
+United States,2021-04-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,194280014,121429642,75718261,0
+United States,2021-04-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,198778246,123995889,78232235,0
+United States,2021-04-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,203094737,126435265,80668206,0
+United States,2021-04-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,205980358,128158823,82323712,0
+United States,2021-04-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,207379181,128991497,83123746,0
+United States,2021-04-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,210393079,130622321,84846676,0
+United States,2021-04-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,213865333,132360936,86563652,0
+United States,2021-04-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,217549845,134087013,88487564,0
+United States,2021-04-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,221285778,135836000,90436136,0
+United States,2021-04-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,224878463,137466218,92363667,0
+United States,2021-04-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,227234302,138626884,93539508,0
+United States,2021-04-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,228364002,139164047,94121361,0
+United States,2021-04-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,230937322,140245293,95584792,0
+United States,2021-04-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,234156776,141600688,97417906,0
+United States,2021-04-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,237617607,142978218,99465903,0
+United States,2021-04-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,241100206,144373325,101520260,0
+United States,2021-04-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,244382637,145721985,103423412,0
+United States,2021-04-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,246583643,146723509,104608244,0
+United States,2021-04-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,247574048,147212851,105103423,0
+United States,2021-04-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,249953971,148143463,106535265,0
+United States,2021-04-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,252839395,149245419,108324828,0
+United States,2021-04-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,255917721,150385734,110290752,0
+United States,2021-04-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,258954062,151492916,112270017,0
+United States,2021-04-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,261852253,152597002,114120988,0
+United States,2021-05-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,263690846,153300227,115284869,0
+United States,2021-05-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,264567472,153624629,115869582,0
+United States,2021-05-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,266525628,154259761,117271432,0
+United States,2021-05-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,269023480,155072366,119029837,0
+United States,2021-05-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,271564442,155884099,120834885,0
+United States,2021-05-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,274077351,156656672,122651528,0
+United States,2021-05-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,276577384,157444606,124439358,0
+United States,2021-05-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,278108565,157949359,125525562,0
+United States,2021-05-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,278722131,158153653,125962702,0
+United States,2021-05-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,280322403,158634386,127136113,0
+United States,2021-05-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,282364644,159289003,128586047,0
+United States,2021-05-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,284375270,159931019,130022533,0
+United States,2021-05-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,286646715,160855709,131428380,0
+United States,2021-05-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,289093079,161944012,132863904,0
+United States,2021-05-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,290935812,162849248,133853744,0
+United States,2021-05-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,291867064,163325756,134339503,0
+United States,2021-05-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,293685020,164209789,135349515,0
+United States,2021-05-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,295752990,165197296,136512717,0
+United States,2021-05-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,297835493,166180793,137691001,0
+United States,2021-05-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,299850904,167100719,138866034,0
+United States,2021-05-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,301904571,168030892,140068309,0
+United States,2021-05-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,303350637,168759218,140838713,0
+United States,2021-05-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,304007701,169097402,141185249,0
+United States,2021-05-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,305325632,169732075,141935769,0
+United States,2021-05-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,306759908,170398759,142773183,0
+United States,2021-05-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,308191083,171058108,143609730,0
+United States,2021-05-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,309535317,171670632,144406682,0
+United States,2021-05-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,310861618,172273161,145191625,0
+United States,2021-05-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,311625806,172652859,145612261,0
+United States,2021-05-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,312010018,172853624,145817032,0
+United States,2021-05-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,312211613,172942631,145938973,0
+United States,2021-06-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,313474372,173467674,146721138,0
+United States,2021-06-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,314589270,173961556,147400444,0
+United States,2021-06-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,315833425,174423990,148236508,0
+United States,2021-06-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,317233180,174923329,149193153,0
+United States,2021-06-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,318302246,175276169,149942770,0
+United States,2021-06-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,318817762,175447362,150305433,0
+United States,2021-06-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,319886580,175820011,151044375,0
+United States,2021-06-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,321059119,176223535,151860437,0
+United States,2021-06-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,322222193,176614539,152680645,0
+United States,2021-06-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,323389645,177018579,153494742,0
+United States,2021-06-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,324618123,177445910,154346244,0
+United States,2021-06-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,325510017,177726293,154987581,0
+United States,2021-06-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,325902340,177839669,155283465,0
+United States,2021-06-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,326813521,178171676,155902261,0
+United States,2021-06-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,327789878,178532089,156562052,0
+United States,2021-06-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,328732493,178890221,157191817,0
+United States,2021-06-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,329625058,179241700,157781857,0
+United States,2021-06-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,330544394,179609800,158377161,0
+United States,2021-06-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,331119024,179840890,158746267,0
+United States,2021-06-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,331395366,179953170,158922032,0
+United States,2021-06-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,331955169,180254751,159214688,0
+United States,2021-06-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,332709774,180579083,159682423,0
+United States,2021-06-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,333444600,180909747,160123106,0
+United States,2021-06-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,334143164,181228879,160539477,0
+United States,2021-06-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,334909157,181580287,160990970,0
+United States,2021-06-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,335407996,181805688,161285459,0
+United States,2021-06-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,335675132,181932878,161435729,0
+United States,2021-06-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,336228382,182208916,161740244,0
+United States,2021-06-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,336855687,182506899,162097217,0
+United States,2021-06-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,337486518,182814893,162447516,0
+United States,2021-07-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,338091686,183107872,162781247,0
+United States,2021-07-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,338712166,183414654,163122097,0
+United States,2021-07-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,339069840,183596720,163310746,0
+United States,2021-07-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,339120144,183624496,163338033,0
+United States,2021-07-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,339516778,183826153,163546556,0
+United States,2021-07-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,340100825,184100790,163883437,0
+United States,2021-07-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,340671288,184383761,164202094,0
+United States,2021-07-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,341237475,184673212,164512850,0
+United States,2021-07-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,341869890,184995770,164856690,0
+United States,2021-07-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,342271085,185207325,165063317,0
+United States,2021-07-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,342487848,185324242,165171109,0
+United States,2021-07-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,343007897,185599640,165444058,0
+United States,2021-07-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,343534781,185881357,165714996,0
+United States,2021-07-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,344065829,186165641,165986624,0
+United States,2021-07-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,344607097,186464349,166254432,0
+United States,2021-07-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,345232359,186812209,166556663,0
+United States,2021-07-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,345632589,187036353,166745413,0
+United States,2021-07-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,345866462,187171960,166850818,0
+United States,2021-07-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,346434677,187512161,167102282,0
+United States,2021-07-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,347039014,187884790,167357802,0
+United States,2021-07-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,347670594,188272760,167624356,0
+United States,2021-07-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,348320711,188690132,167881327,0
+United States,2021-07-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,349068719,189178781,168168303,0
+United States,2021-07-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,349532243,189481001,168342239,0
+United States,2021-07-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,349791608,189682869,168405182,0
+United States,2021-07-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,350435275,190130532,168625856,0
+United States,2021-07-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,351136606,190611168,168876957,0
+United States,2021-07-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,351856899,191102586,169135405,0
+United States,2021-07-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,352577162,191600310,169387862,0
+United States,2021-07-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,353412612,192175932,169678330,0
+United States,2021-07-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,353927709,192522345,169858404,0
+United States,2021-08-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,354254685,192748290,169957448,0
+United States,2021-08-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,354975030,193254541,170195989,0
+United States,2021-08-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,355737477,193792474,170449589,0
+United States,2021-08-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,356515421,194344627,170704813,0
+United States,2021-08-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,357308093,194904318,170969121,0
+United States,2021-08-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,358215952,195530330,171280440,0
+United States,2021-08-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,358773735,195911883,171470273,0
+United States,2021-08-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,359123991,196149544,171587971,0
+United States,2021-08-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,359905916,196669822,171874642,0
+United States,2021-08-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,360704850,197200002,172169467,0
+United States,2021-08-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,361473578,197698851,172465272,0
+United States,2021-08-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,362276116,198212795,172778543,0
+United States,2021-08-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,363223856,198793819,173167843,13790
+United States,2021-08-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,363848616,199156012,173410378,49936
+United States,2021-08-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,364247732,199367669,173571942,82985
+United States,2021-08-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,365117285,199832095,173926195,162779
+United States,2021-08-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,366040293,200322186,174289853,261985
+United States,2021-08-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,366992389,200809208,174668706,377909
+United States,2021-08-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,367936534,201289355,175049758,491470
+United States,2021-08-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,369042820,201827344,175528178,612698
+United States,2021-08-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,369707953,202148842,175825325,674113
+United States,2021-08-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,370097226,202333068,176004621,705689
+United States,2021-08-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,371016489,202774994,176409598,802142
+United States,2021-08-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,371966044,203237313,176824438,902175
+United States,2021-08-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,372931925,203707381,177246622,1005173
+United States,2021-08-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,373921755,204184665,177679214,1115633
+United States,2021-08-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,375092100,204720156,178218751,1241470
+United States,2021-08-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,375803360,205039581,178559355,1305428
+United States,2021-08-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,376233077,205233353,178764841,1341087
+United States,2021-08-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,377157690,205651012,179195769,1440797
+United States,2021-08-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,378083677,206070336,179616223,1550110
+United States,2021-09-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,379017263,206497877,180024257,1672247
+United States,2021-09-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,379912357,206902952,180424996,1786499
+United States,2021-09-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,380952788,207358510,180914780,1905707
+United States,2021-09-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,381512767,207605210,181192154,1950298
+United States,2021-09-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,381878682,207773641,181365447,1977914
+United States,2021-09-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,382055961,207856518,181452295,1989713
+United States,2021-09-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,382963147,208212280,181930748,2082115
+United States,2021-09-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,383805999,208579299,182331434,2178147
+United States,2021-09-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,384651089,208952621,182727768,2275697
+United States,2021-09-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,385682895,209403285,183226796,2382571
+United States,2021-09-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,386278969,209662235,183526482,2431381
+United States,2021-09-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,386628434,209819594,183699780,2454390
+United States,2021-09-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,387408151,210158545,184082565,2530329
+United States,2021-09-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,388155985,210475495,184459759,2604764
+United States,2021-09-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,388915372,210789034,184848209,2682784
+United States,2021-09-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,389673335,211100708,185239604,2760044
+United States,2021-09-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,390573266,211452887,185720471,2850120
+United States,2021-09-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,391093730,211658883,185995790,2898745
+United States,2021-09-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,391397711,211778465,186160451,2922051
+United States,2021-09-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,392083790,212045244,186511242,3008015
+United States,2021-09-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,392756328,212306843,186853489,3096957
+United States,2021-09-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,393418207,212561028,187189350,3182608
+United States,2021-09-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,394089941,212816710,187518131,3285140
+United States,2021-09-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,395069040,213138793,187931999,3543974
+United States,2021-09-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,395737473,213342583,188161200,3785481
+United States,2021-09-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,396144367,213463118,188306894,3928661
+United States,2021-09-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,397165952,213763420,188530355,4437679
+United States,2021-09-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,398289066,214055618,188834457,4976266
+United States,2021-09-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,399418609,214345738,189146304,5516845
+United States,2021-09-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,400569585,214636634,189466803,6071041
+United States,2021-10-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,401866584,214953287,189845739,6684397
+United States,2021-10-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,402492445,215127871,190053192,6934581
+United States,2021-10-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,402856568,215234748,190183732,7063700
+United States,2021-10-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,403831036,215483341,190440619,7543816
+United States,2021-10-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,404837389,215728908,190697477,8059706
+United States,2021-10-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,405858636,215978288,190956452,8584665
+United States,2021-10-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,406864774,216229968,191212433,9096382
+United States,2021-10-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,407998253,216514247,191522741,9649188
+United States,2021-10-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,408531077,216662507,191691030,9871589
+United States,2021-10-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,408843385,216756141,191795941,9987299
+United States,2021-10-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,409691754,216982714,192017032,10398422
+United States,2021-10-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,410609410,217212555,192251056,10864617
+United States,2021-10-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,411505436,217440699,192479658,11317544
+United States,2021-10-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,412408276,217667630,192708914,11778541
+United States,2021-10-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,413450062,217930329,192986532,12295002
+United States,2021-10-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,413938164,218071506,193131022,12503906
+United States,2021-10-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,414206308,218155888,193215389,12605542
+United States,2021-10-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,415030882,218380280,193426661,13006380
+United States,2021-10-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,415845821,218583375,193619326,13437401
+United States,2021-10-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,416673530,218787721,193813691,13878762
+United States,2021-10-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,417522539,218995482,194010731,14335320
+United States,2021-10-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,418888202,219289670,194256592,15173538
+United States,2021-10-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,419710991,219467358,194390289,15690175
+United States,2021-10-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,420181025,219576846,194470734,15972215
+United States,2021-10-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,421693912,219881814,194675058,16984534
+United States,2021-10-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,423239673,220182069,194876007,18040688
+United States,2021-10-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,424847224,220491742,195082963,19143225
+United States,2021-10-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,426440905,220791801,195291591,20241190
+United States,2021-10-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,428210637,221121321,195529409,21456907
+United States,2021-10-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,429024263,221290323,195648495,21990042
+United States,2021-10-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,429458362,221391878,195718966,22255084
+United States,2021-11-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,430903015,221677894,195913836,23227282
+United States,2021-11-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,432390764,221964079,196102130,24254401
+United States,2021-11-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,433939040,222277689,196294073,25311275
+United States,2021-11-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,435560708,222630301,196488949,26400295
+United States,2021-11-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,437455241,223085871,196718362,27625693
+United States,2021-11-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,438481927,223476273,196835921,28152147
+United States,2021-11-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,439032703,223704476,196906425,28409332
+United States,2021-11-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,440482287,224176634,197079223,29226512
+United States,2021-11-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,442104782,224700572,197245227,30168976
+United States,2021-11-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,443856318,225274827,197415334,31185575
+United States,2021-11-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,445444450,225824907,197568763,32078622
+United States,2021-11-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,447418971,226465216,197767961,33225049
+United States,2021-11-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,448585220,226999410,197870812,33758455
+United States,2021-11-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,449160058,227239895,197931402,34035435
+United States,2021-11-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,450696644,227701873,198098328,34952833
+United States,2021-11-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,452362941,228191363,198265217,35973864
+United States,2021-11-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,454106281,228699010,198437421,37047835
+United States,2021-11-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,455877484,229207137,198608658,38150563
+United States,2021-11-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,457932044,229791159,198803637,39437450
+United States,2021-11-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,459155444,230251119,198904437,40105834
+United States,2021-11-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,459793272,230457795,198964459,40479677
+United States,2021-11-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,461587980,230948199,199135556,41621847
+United States,2021-11-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,463361095,231439985,199300996,42747364
+United States,2021-11-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,464731457,231843292,199454409,43570750
+United States,2021-11-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,464758595,231852326,199459450,43583832
+United States,2021-11-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,465954633,232165222,199634523,44297264
+United States,2021-11-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,466840669,232386466,199832126,44768457
+United States,2021-11-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,467425865,232529572,199978568,45066415
+United States,2021-11-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,469071948,232885500,200337861,46007155
+United States,2021-11-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,470974334,233292231,200727384,47124616
+United States,2021-12-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,473099471,233752041,201134381,48391107
+United States,2021-12-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,475237644,234200488,201526840,49698665
+United States,2021-12-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,477648169,234688016,202015732,51143052
+United States,2021-12-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,479113712,234989459,202464955,51862301
+United States,2021-12-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,479836953,235155634,202653848,52233224
+United States,2021-12-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,481648156,235546773,202978126,53335192
+United States,2021-12-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,483536049,235950200,203317888,54486634
+United States,2021-12-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,485438183,236358441,203668610,55637533
+United States,2021-12-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,487336767,236763749,204006592,56800418
+United States,2021-12-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,489415697,237188027,204400467,58068151
+United States,2021-12-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,490660313,237455351,204735392,58714398
+United States,2021-12-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,491285067,237607771,204864425,59060685
+United States,2021-12-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,492883860,237956163,205142025,60040388
+United States,2021-12-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,494578419,238323727,205427236,61090552
+United States,2021-12-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,496272891,238702875,205686726,62154199
+United States,2021-12-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,497939517,239093213,205855803,63269134
+United States,2021-12-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,499847396,239526427,206106738,64496382
+United States,2021-12-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,500957938,239815298,206269022,65157436
+United States,2021-12-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,501593301,239985578,206350662,65541736
+United States,2021-12-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,503410952,240428035,206576170,66693841
+United States,2021-12-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,505355405,240895648,206817453,67931229
+United States,2021-12-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,507192916,241343339,207054953,69086637
+United States,2021-12-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,508634251,241712171,207231913,69984812
+United States,2021-12-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,509010100,241815875,207288251,70202406
+United States,2021-12-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,509016299,241817909,207289143,70205642
+United States,2021-12-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,509491387,241950487,207372096,70465930
+United States,2021-12-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,510998707,242346050,207600439,71352379
+United States,2021-12-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,512664123,242780921,207840025,72346594
+United States,2021-12-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,514312241,243216845,208075120,73326869
+United States,2021-12-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,515817247,243619799,208287951,74219585
+United States,2021-12-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,516416615,243781571,208380521,74566215
+United States,2022-01-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,516515715,243814440,208396215,74616519
+United States,2022-01-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,517007289,243952098,208486151,74881552
+United States,2022-01-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,518226959,244294876,208681194,75567625
+United States,2022-01-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,519616094,244669151,208894014,76374268
+United States,2022-01-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,521033890,245050053,209104785,77205434
+United States,2022-01-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,522463342,245421500,209315320,78057367
+United States,2022-01-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,524068544,245822128,209557897,79023572
+United States,2022-01-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,525096011,246097353,209730747,79605052
+United States,2022-01-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,525584717,246240038,209804888,79878261
+United States,2022-01-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,526816959,246571793,209993273,80594624
+United States,2022-01-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,528096751,246911777,210192908,81338539
+United States,2022-01-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,529376596,247252835,210390907,82083461
+United States,2022-01-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,530636109,247590343,210577698,82821816
+United States,2022-01-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,532072566,247970153,210750677,83706778
+United States,2022-01-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,532845905,248196337,210837175,84167719
+United States,2022-01-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,533229796,248302768,210894558,84388158
+United States,2022-01-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,534041067,248519695,211033763,84843439
+United States,2022-01-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,535015774,248774466,211219751,85377284
+United States,2022-01-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,535968908,249027847,211403522,85893091
+United States,2022-01-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,536877108,249269584,211577079,86385432
+United States,2022-01-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,537924960,249549345,211735451,86994111
+United States,2022-01-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,538529341,249723054,211816937,87342408
+United States,2022-01-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,538853491,249814644,211880300,87511623
+United States,2022-01-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,539627047,250019004,212037998,87921965
+United States,2022-01-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,540408097,250224566,212210657,88323494
+United States,2022-01-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,541176986,250426631,212386613,88713273
+United States,2022-01-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,541943522,250626733,212558507,89105657
+United States,2022-01-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,542871790,250858099,212764479,89593075
+United States,2022-01-29,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,543331679,250981097,212874627,89818307
+United States,2022-01-30,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,543591320,251054273,212940768,89938128
+United States,2022-01-31,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,544204893,251216328,213096238,90232212
+United States,2022-02-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,544794273,251366558,213252225,90512805
+United States,2022-02-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,545345007,251509991,213402929,90767755
+United States,2022-02-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,545846425,251639398,213539567,91000930
+United States,2022-02-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,546481062,251793269,213719688,91298412
+United States,2022-02-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,546906362,251902461,213849403,91482801
+United States,2022-02-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,547113450,251961825,213908445,91570634
+United States,2022-02-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,547579914,252089186,214037141,91777618
+United States,2022-02-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,548063731,252214075,214179103,91990768
+United States,2022-02-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,548556495,252343386,214320589,92209402
+United States,2022-02-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,549044951,252470456,214456415,92431091
+United States,2022-02-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,549644986,252620448,214625349,92707317
+United States,2022-02-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,549980375,252711137,214724850,92850039
+United States,2022-02-13,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,550128889,252754248,214769693,92909217
+United States,2022-02-14,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,550457040,252841581,214863904,93052117
+United States,2022-02-15,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,550842609,252940606,214975724,93222405
+United States,2022-02-16,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,551238483,253041536,215088431,93400178
+United States,2022-02-17,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,551627643,253138962,215194210,93580492
+United States,2022-02-18,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,552130415,253261692,215331304,93816152
+United States,2022-02-19,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,552401164,253335866,215406656,93934549
+United States,2022-02-20,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,552548612,253377771,215447132,93997848
+United States,2022-02-21,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,552854905,253458006,215532448,94133159
+United States,2022-02-22,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,553185873,253544882,215624697,94279270
+United States,2022-02-23,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,553512490,253630988,215713030,94425813
+United States,2022-02-24,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,553822946,253711050,215794157,94568947
+United States,2022-02-25,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,554194557,253804679,215893213,94741329
+United States,2022-02-26,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,554426241,253869320,215954017,94844874
+United States,2022-02-27,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,554543971,253903360,215984144,94897116
+United States,2022-02-28,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,554839622,253979218,216059627,95036208
+United States,2022-03-01,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,555094950,254046268,216127543,95151413
+United States,2022-03-02,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,555334079,254110723,216193812,95254996
+United States,2022-03-03,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,555567208,254172251,216257150,95358470
+United States,2022-03-04,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,555859556,254246694,216338188,95488611
+United States,2022-03-05,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556029197,254294950,216385902,95560389
+United States,2022-03-06,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556112418,254320586,216408621,95594401
+United States,2022-03-07,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556306160,254374850,216458689,95679769
+United States,2022-03-08,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556502259,254426780,216512109,95766048
+United States,2022-03-09,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556686776,254476000,216563462,95845810
+United States,2022-03-10,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556850740,254518093,216609285,95918327
+United States,2022-03-11,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556968093,254547815,216643718,95969252
+United States,2022-03-12,"Johnson&Johnson, Moderna, Pfizer/BioNTech",https://data.cdc.gov/Vaccinations/COVID-19-Vaccination-Trends-in-the-United-States-N/rh2h-3yt2,556980091,254551489,216647869,95973403
