@@ -162,7 +162,7 @@
                     d.total_vaccinations_per_million = d.total_vaccinations / 1000000
                     return d
                 });
-                console.log(covid[0])
+                // console.log(covid[0])
                 console.log('Loaded covid data')
 
                 return [covid, topoData]
@@ -301,7 +301,7 @@
                     }
                     updateCountries()
                     updateCountriesLineChart2()
-                    console.log(selectedCountries);
+                    // console.log(selectedCountries);
                 }
 
                 const values = getMapValues()
@@ -348,9 +348,9 @@
                     .attr('d', arc)
                     .attr("fill", function (d, i) { return color(i); })
                     .attrTween("d", function (d, i, n) {
-                        console.log("arctween")
-                        console.log(d.startAngle)
-                        console.log(d.endAngle)
+                        // console.log("arctween")
+                        // console.log(d.startAngle)
+                        // console.log(d.endAngle)
                         var i = d3.interpolate(d.startAngle, d.endAngle);
                         return function (t) {
                             d.endAngle = i(t);
@@ -454,10 +454,10 @@
                 svg
                     .attr("viewHeight", currentHeight)
                     .attr("viewWidth", currentWidth)
-                console.log('currentWidth')
-                console.log(currentWidth)
-                console.log('currentHeight')
-                console.log(currentHeight)
+                // console.log('currentWidth')
+                // console.log(currentWidth)
+                // console.log('currentHeight')
+                // console.log(currentHeight)
                 xScale.range([0, currentWidth])
                 yScale.range([currentHeight, 0])
 
@@ -589,9 +589,13 @@
                     x: "gdp",
                     y: ["value"],
                     chart1: ({ svg, id, i, xScale, yScale, x, y, chartMargin }) => {
-                        console.log(chartMargin)
-                        svg.append("g")
+                        // console.log(chartMargin)
+                        const chart = svg.append("g")
                             .attr('id', id)
+
+                        chart.call(d3.brush().extent([[0, 0], [width, height]]).on('brush', onBrushGdp))
+
+                        chart
                             .selectAll("dot")
                             .data(data)
                             .enter()
@@ -606,12 +610,40 @@
 
             }
 
+            const onBrushGdp = (e) => {
+                let selection = e.selection
+                const chartId = '#scatter__chart__container__chart0'
+                selectedCountries.length = 0
+                d3.select('#scatter__chart__container__chart0').selectAll('circle').each(function (d) {
+                    const dot = d3.select(this)
+                    if (dot.attr('class') == 'selected') {
+                        dot.attr('class', null)
+                    }
+                    dot.style('fill', "#69b3a2")
+                    const cx = dot.attr('cx')
+                    const cy = dot.attr('cy')
+
+                    if (cx > selection[0][0] && cx < selection[1][0] && cy > selection[0][1] && cy < selection[1][1]) {
+                        if (selectedCountries.findIndex(e => e == d.id) == -1) {
+                            selectedCountries.push(d.id)
+                            dot.attr('class', 'selected').style('fill', '#a45fe1')
+                            updateCountries()
+                            updateCountriesLineChart2()
+                        }
+                    }
+                })
+                // console.log(selectedCountries)
+
+            }
+
+
+
             const getMaxCountryData = (isoCodes, yKey, divide) => {
                 let maxCountry = null;
                 let maxY = 0;
                 for (let i = 0; i < isoCodes.length; i++) {
                     let yVal = d3.max(dataByCountry[isoCodes[i]], d => +(d[yKey] / (d[divide] ?? 1)))
-                    console.log(`Country: ${isoCodes[i]}, Y: ${yVal}`)
+                    // console.log(`Country: ${isoCodes[i]}, Y: ${yVal}`)
                     if (yVal > maxY) {
                         maxY = yVal
                         maxCountry = isoCodes[i]
@@ -637,7 +669,7 @@
                 let maxCountry = getMaxCountryData(isoCodes, yKey)
 
                 const data = dataByCountry[maxCountry]
-                console.log(data)
+                // console.log(data)
 
                 var x = d3.scaleTime()
                     .domain(d3.extent(worldData, function (d) { return d.date; }))
@@ -697,10 +729,7 @@
                         const marginLeft = d3.select(`#${parentId}__chart0`).attr('marginLeft')
                         const marginTop = d3.select(`#${parentId}__chart0`).attr('marginTop')
                         const marginBottom = d3.select(`#${parentId}__chart0`).attr('marginBottom')
-                        console.log("Margin")
-                        console.log(marginLeft)
-                        console.log(marginTop)
-                        console.log(marginBottom)
+
                         svg.append("path")
                             .attr('id', `${parentId}__chart${i}`)
                             .attr('class', 'chart')
@@ -743,7 +772,7 @@
                 const getDivideBy = (d) => {
                     return d[selection.value2] ?? 1
                 }
-                console.log('selectionValue1: ' + selection.value1)
+                // console.log('selectionValue1: ' + selection.value1)
 
                 let maxCountry = getMaxCountryData(isoCodes, selection.value1, selection.value2)
 
@@ -769,9 +798,6 @@
                 // Update the charts
                 for (let i = 0; i < charts.size(); i++) {
                     const chart = d3.select(`#${parentId}__chart${i}`)
-                    console.log(`#${parentId}__chart${i}`)
-                    console.log("CHART")
-                    console.log(chart.node())
                     const marginLeft = parseFloat(chart.attr('marginLeft'))
                     const marginTop = parseFloat(chart.attr('marginTop'))
                     const marginBottom = parseFloat(chart.attr('marginBottom'))
@@ -893,7 +919,7 @@
             const updateScatterPlot = () => {
                 const value = d3.select("#scatter_select").property("value")
                 const text = d3.select("#scatter_select option:checked").text()
-                console.log(`Text: ${text}`)
+                // console.log(`Text: ${text}`)
                 let data = getTotalsByCountry({ key: value })
                 data = data.filter(d => d.gdp > 0)
                 let parentId = "#scatter__chart__container"
@@ -903,7 +929,7 @@
 
                 let height = parseFloat(svg.attr('viewHeight'))
                 let width = parseFloat(svg.attr('viewWidth'))
-                console.log(`Width: ${width}, Height: ${height}`)
+                // console.log(`Width: ${width}, Height: ${height}`)
 
                 var x = d3.scaleLinear()
                     .domain([0, d3.max(data, d => +d.gdp)])
