@@ -11,6 +11,13 @@
 </head>
 
 <style>
+    #countries {
+        width: 150px;
+        height: calc(100vh - 66px);
+        position: fixed;
+        background-color: #1e1e1e;
+    }
+
     #container {
         display: flex;
         width: inherit;
@@ -24,7 +31,11 @@
     }
 </style>
 
-<body>
+<body style="display: flex;">
+
+    <div id="countries">
+
+    </div>
     <div id="container" style="display: flex;">
         <div id="map__container">
             <!-- <svg id="map" width="400" height="300"></svg> -->
@@ -52,8 +63,8 @@
             </div>
         </div>
         <!-- <div id="pie__container">
-            <svg id="pie" width="400" height="300"></svg>
-        </div> -->
+                <svg id="pie" width="400" height="300"></svg>
+            </div> -->
         <div id="line__container">
             <div id="line__chart__container">
             </div>
@@ -109,7 +120,7 @@
         (async () => {
             // Global Values
             const selectedCountries = []
-
+            const colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
             // ---------------------------------
             // ---------------------------------Line Chart values---------------------------------
             // ---------------------------------
@@ -129,6 +140,7 @@
             const mapSvg = d3.select("#map")
             mapWidth = 400
             mapHeight = 300
+
 
             // Setting background of Map
             mapSvg.style('background', '#1e1e1e')
@@ -158,6 +170,8 @@
             const allData = await loadDataset()
             const dataset = allData[0]
             const topoData = allData[1]
+            const countries = {}
+            topoData.features.forEach(e => { countries[e.id] = e.properties.name })
             // Modified dataset to select data by country
             const dataByCountry = {}
 
@@ -170,7 +184,45 @@
 
                 }
             }
+            const updateCountries = () => {
+                const main = d3
+                    .select('#countries')
+                    .selectAll('div.country')
+                    .data(selectedCountries)
 
+                const divs = main
+                    .enter()
+                    .append('div')
+                    .attr('class', 'country')
+                    .style('display', 'flex')
+                    .style('justify-content', 'space-between')
+                    .style('align-items', 'center')
+                    .style('height', '22px')
+                    .style('padding', '0px 8px')
+
+                divs
+                    .append('p')
+                    .style('color', 'white')
+                    .text((d) => countries[d])
+
+                divs
+                    .append('div')
+                    .style('width', '20px')
+                    .style('height', '5px')
+                    .style('background', (d, i) => colorScale(i))
+
+                const merged = divs
+                    .merge(main)
+
+                merged
+                    .select('p')
+                    .text(d => countries[d])
+
+                merged.select('div').style('background', (d, i) => colorScale(i))
+
+                main.exit()
+                    .remove()
+            }
             const countryCodes = topoData.features.map((e) => e.id)
 
             const getTotalsByCountry = ({ date = null, key = 'total_cases' }) => {
@@ -237,6 +289,17 @@
 
             const createMap = async () => {
 
+                const onClick = (e, d) => {
+                    let index = selectedCountries.findIndex(element => element == d.id)
+                    if (index != -1) {
+                        selectedCountries.splice(index, 1)
+                    } else {
+                        selectedCountries.push(d.id)
+                    }
+                    updateCountries()
+                    console.log(selectedCountries);
+                }
+
                 const values = getMapValues()
 
                 mapSvg.append("g")
@@ -254,6 +317,7 @@
                         const scale = values.find(e => { return e.id == d.id })
                         return mapColorScale(scale ? scale.value : 0)
                     })
+                    .on('click', onClick)
             }
 
             // TODO: Create Pie Chart
@@ -295,7 +359,6 @@
             const createChart = async ({ chartWidth = 400, chartHeight = 300, data, parentId, xScale, yScale, y2Scale, xLabel, y1Label, y2Label, x, y, y2, chart1, chart2 }) => {
                 // got the dataset
                 // got the dimensions
-                var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
                 const textMargin = 30
                 const chartMargin = { left: 0, right: 0, top: 60, bottom: 0 }
                 const svg = d3.select(`#${parentId}`)
@@ -436,7 +499,6 @@
 
             // -------------------------- Creating Line Chart --------------------------
             const createLineChart = async () => {
-                var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
                 const width = 400;
                 const height = 300;
                 const data = dataset.filter(e => e.iso_code == 'OWID_WRL')
@@ -500,7 +562,6 @@
             const createGdpChart = async () => {
                 let data = getTotalsByCountry({ key: 'total_vaccinations_per_million' })
                 data = data.filter(d => d.gdp > 0)
-                var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
                 const width = 400;
                 const height = 300;
                 // Setting up X axis
@@ -556,7 +617,6 @@
             }
 
             const createLineChart2 = async () => {
-                var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
                 const width = 400;
                 const height = 300;
                 const isoCodes = ['OWID_WRL', 'BGD', 'USA']
@@ -611,7 +671,6 @@
 
             const updateLineChart2 = async () => {
                 const parentId = 'line2__chart__container';
-                var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
                 const isoCodes = ['OWID_WRL', 'BGD', 'USA']
                 const worldData = dataByCountry['OWID_WRL']
 
@@ -660,16 +719,6 @@
                     const marginLeft = parseFloat(chart.attr('marginLeft'))
                     const marginTop = parseFloat(chart.attr('marginTop'))
                     const marginBottom = parseFloat(chart.attr('marginBottom'))
-                    // svg.append("path")
-                    //         .attr('id', id)
-                    //         .datum(localData)
-                    //         .attr("fill", "none")
-                    //         .attr("stroke", colorScale(i))
-                    //         .attr("stroke-width", 1.5)
-                    //         .attr("d", d3.line()
-                    //             .x(function (d) { return xScale(d[x]) + chartMargin.left })
-                    //             .y(function (d) { return yScale(d[yKey]) - chartMargin.bottom + chartMargin.top })
-                    //         )
 
                     chart
                         .datum(dataByCountry[isoCodes[i]])
