@@ -72,6 +72,27 @@
                 <option value="new_deaths">New Deaths</option>
             </select>
         </div>
+        <div id='line2__container'>
+            <div id="line2__chart__container">
+            </div>
+            <label for="line2__chart__container__select1">Y:</label>
+
+            <select name="line2__chart__container__select1" id="line2__chart__container__select1">
+                <option value="new_cases_smoothed">New Cases</option>
+                <option value="new_deaths_smoothed">New Deaths</option>
+                <option value="new_vaccinations_smoothed">New Vaccinated</option>
+                <option value="total_vaccinations">Total Vaccinated</option>
+                <option value="total_deaths">Total Deaths</option>
+                <option value="total_cases">Total Cases</option>
+            </select>
+
+            <label for="line2__chart__container__select2">Divided By:</label>
+
+            <select name="line2__chart__container__select2" id="line2__chart__container__select2">
+                <option value="1">1</option>
+                <option value="population">Population</option>
+            </select>
+        </div>
         <div id="scatter__container">
             <div id="scatter__chart__container">
             </div>
@@ -86,24 +107,8 @@
     </div>
     <script>
         (async () => {
-
-            // ---------------------------------
-            // ---------------------------------Pie Chart Values---------------------------------
-            // ---------------------------------
-
-            // const pieSvg = d3.select('#pie'),
-            //     pieSvgWidth = +pieSvg.attr("width"),
-            //     pieSvgHeight = +pieSvg.attr("height");
-
-            // const pieRadius = Math.min(pieSvgWidth, pieSvgHeight) / 2;
-            // const pieColor = d3.scaleOrdinal().range(d3.schemeSet3);
-
-            // const pie = d3.pie()
-            //     .sort(null);
-
-            // const arc = d3.arc()
-            //     .innerRadius(pieRadius - 100)
-            //     .outerRadius(pieRadius - 50);
+            // Global Values
+            const selectedCountries = []
 
             // ---------------------------------
             // ---------------------------------Line Chart values---------------------------------
@@ -140,6 +145,7 @@
                 console.log('Loaded topo data')
                 const covid = await d3.csv('./data/owid-covid-data.csv', (d) => {
                     // TODO:
+                    d.dateString = d.date
                     d.date = d3.timeParse("%Y-%m-%d")(d.date);
                     d.total_vaccinations_per_million = d.total_vaccinations / 1000000
                     return d
@@ -298,8 +304,6 @@
                     .attr("viewBox", `0 0 ${chartWidth} ${chartHeight}`)
                     .append("g")
                     .attr("id", `${parentId}__svg`)
-                    .attr("viewHeight", chartHeight)
-                    .attr("viewWidth", chartWidth)
 
                 // got the x and y scaler
                 if (y1Label != null) {
@@ -379,6 +383,10 @@
                 }
                 let currentWidth = chartWidth - chartMargin.left - chartMargin.right
                 let currentHeight = chartHeight - chartMargin.bottom - chartMargin.top
+                // Save the current width and height
+                svg
+                    .attr("viewHeight", currentHeight)
+                    .attr("viewWidth", currentWidth)
                 console.log('currentWidth')
                 console.log(currentWidth)
                 console.log('currentHeight')
@@ -407,6 +415,7 @@
                     // https://css-tricks.com/snippets/javascript/random-hex-color/
                     chart1({ svg, id: `${parentId}__chart${i}`, i, xScale, yScale, x, y, chartMargin })
                     d3.select(`#${parentId}__chart${i}`)
+                        .attr('class', 'chart')
                         .attr('marginLeft', chartMargin.left)
                         .attr('marginTop', chartMargin.top)
                         .attr('marginBottom', chartMargin.bottom)
@@ -416,6 +425,7 @@
                 if (y2 != null) {
                     chart2({ svg, id: `${parentId}__chart${i}`, i, xScale, y2Scale, x, y2, chartMargin })
                     d3.select(`#${parentId}__chart${i}`)
+                        .attr('class', 'chart')
                         .attr('marginLeft', chartMargin.left)
                         .attr('marginTop', chartMargin.top)
                         .attr('marginBottom', chartMargin.bottom)
@@ -531,55 +541,148 @@
 
             }
 
-            const createLine2Chart = async () => {
+            const getMaxCountryData = (isoCodes, yKey, divide) => {
+                let maxCountry = null;
+                let maxY = 0;
+                for (let i = 0; i < isoCodes.length; i++) {
+                    let yVal = d3.max(dataByCountry[isoCodes[i]], d => +(d[yKey] / (d[divide] ?? 1)))
+                    console.log(`Country: ${isoCodes[i]}, Y: ${yVal}`)
+                    if (yVal > maxY) {
+                        maxY = yVal
+                        maxCountry = isoCodes[i]
+                    }
+                }
+                return maxCountry
+            }
+
+            const createLineChart2 = async () => {
                 var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
                 const width = 400;
                 const height = 300;
-                const countryCodes = ['OWID_WRL', 'USA']
-                const data = {}
+                const isoCodes = ['OWID_WRL', 'BGD', 'USA']
+                const worldData = dataByCountry['OWID_WRL']
+                const yKey = 'new_vaccinations_smoothed'
+
                 // const worldData = dataset.filter(e => e.iso_code == 'OWID_WRL')
                 // const usaData = dataset.filter(e => e.iso_code == 'USA')
                 // const filteredData =
                 // const data = usaData.map(d => d.)
                 // Setting up X axis
+
+                // Get the max country
+                let maxCountry = getMaxCountryData(isoCodes, yKey)
+
+                const data = dataByCountry[maxCountry]
+                console.log(data)
+
                 var x = d3.scaleTime()
-                    .domain(d3.extent(data, function (d) { return d.date; }))
+                    .domain(d3.extent(worldData, function (d) { return d.date; }))
                     .range([0, width]);
                 var y1 = d3.scaleLinear()
-                    .domain([0, d3.max(data, (d) => +(d.new_vaccinations_smoothed_per_million))])
+                    .domain([0, d3.max(data, (d) => +(d[yKey]))])
                     .range([height, 0]);
-                // New Cases
-                var y2 = d3.scaleLinear()
-                    .domain([0, d3.max(data, (d) => +d.new_cases_smoothed_per_million)])
-                    .range([height, 0]);
-
                 createChart({
                     chartWidth: width,
                     chartHeight: height,
                     data: data,
-                    parentId: 'line__chart__container',
+                    parentId: 'line2__chart__container',
                     xLabel: "Timeline of Covid 19",
-                    y1Label: "New Vaccinated(millions)",
+                    y1Label: "New Vaccinations / Population",
                     xScale: x,
                     yScale: y1,
                     x: "date",
-                    y: ["new_vaccinations_smoothed_per_million"],
+                    y: isoCodes,
                     chart1: ({ svg, id, i, xScale, yScale, x, y, chartMargin }) => {
+                        const localData = dataByCountry[y[i]]
                         svg.append("path")
                             .attr('id', id)
-                            .datum(data)
+                            .datum(localData)
                             .attr("fill", "none")
                             .attr("stroke", colorScale(i))
                             .attr("stroke-width", 1.5)
                             .attr("d", d3.line()
                                 .x(function (d) { return xScale(d[x]) + chartMargin.left })
-                                .y(function (d) { return yScale(d[y[i]]) - chartMargin.bottom + chartMargin.top })
+                                .y(function (d) { return yScale(d[yKey]) - chartMargin.bottom + chartMargin.top })
                             )
                     },
                 })
 
             }
 
+            const updateLineChart2 = async () => {
+                const parentId = 'line2__chart__container';
+                var colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
+                const isoCodes = ['OWID_WRL', 'BGD', 'USA']
+                const worldData = dataByCountry['OWID_WRL']
+
+                const svg = d3
+                    .select(`#${parentId}__svg`)
+
+                let height = parseFloat(svg.attr('viewHeight'))
+                let width = parseFloat(svg.attr('viewWidth'))
+
+                const selection = {
+                    value1: d3.select(`#${parentId}__select1`).property('value'),
+                    text1: d3.select(`#${parentId}__select1 option:checked`).text(),
+                    value2: d3.select(`#${parentId}__select2`).property('value'),
+                    text2: d3.select(`#${parentId}__select2 option:checked`).text(),
+                }
+
+                const getDivideBy = (d) => {
+                    return d[selection.value2] ?? 1
+                }
+                console.log('selectionValue1: ' + selection.value1)
+
+                let maxCountry = getMaxCountryData(isoCodes, selection.value1, selection.value2)
+
+                const data = dataByCountry[maxCountry]
+
+                var xScale = d3.scaleTime()
+                    .domain(d3.extent(worldData, function (d) { return d.date; }))
+                    .range([0, width]);
+
+                var yScale = d3.scaleLinear()
+                    .domain([0, d3.max(data, (d) => +(d[selection.value1] / getDivideBy(d)))])
+                    .range([height, 0]);
+
+                svg
+                    .select(`#${parentId}__y1__axis`)
+                    .call(d3.axisLeft(yScale));
+
+                const yLabel = `${selection.text1} ${selection.text2 != '1' ? `/ ${selection.text2}` : ''}`
+
+                d3.select(`#${parentId}__y1label`).text(yLabel)
+
+                const charts = svg.selectAll('.chart')
+                // Update the charts
+                for (let i = 0; i < charts.size(); i++) {
+                    const chart = d3.select(`#${parentId}__chart${i}`)
+                    const marginLeft = parseFloat(chart.attr('marginLeft'))
+                    const marginTop = parseFloat(chart.attr('marginTop'))
+                    const marginBottom = parseFloat(chart.attr('marginBottom'))
+                    // svg.append("path")
+                    //         .attr('id', id)
+                    //         .datum(localData)
+                    //         .attr("fill", "none")
+                    //         .attr("stroke", colorScale(i))
+                    //         .attr("stroke-width", 1.5)
+                    //         .attr("d", d3.line()
+                    //             .x(function (d) { return xScale(d[x]) + chartMargin.left })
+                    //             .y(function (d) { return yScale(d[yKey]) - chartMargin.bottom + chartMargin.top })
+                    //         )
+
+                    chart
+                        .datum(dataByCountry[isoCodes[i]])
+                        .attr("d", d3.line()
+                            .x(function (d) { return xScale(d['date']) + marginLeft })
+                            .y(function (d) { return yScale(d[selection.value1] / getDivideBy(d)) - marginBottom + marginTop; })
+                        )
+
+
+                }
+
+                // Scatter GDP
+            }
 
             const updateLineChart = () => {
                 // Get Values from the change
@@ -710,22 +813,17 @@
                     .call(d3.axisLeft(y));
 
                 // Update the X Label
-
                 d3.select(`${parentId}__y1label`).text(text)
 
                 const chart = d3.select(`${parentId}__chart0`)
-                const chartMargin = chart.attr('data-chartMargin')
                 // Scatter GDP
                 const marginLeft = parseFloat(chart.attr('marginLeft'))
                 const marginTop = parseFloat(chart.attr('marginTop'))
                 const marginBottom = parseFloat(chart.attr('marginBottom'))
-                console.log(marginLeft)
-                console.log(marginTop)
-                console.log(marginBottom)
                 chart.selectAll("circle")
                     .data(data)
                     .attr("cx", function (d) { return x(d.gdp) + marginLeft; })
-                    .attr("cy", function (d) { return y(d.value / d.pop) - marginTop; })
+                    .attr("cy", function (d) { return y(d.value / d.pop) - marginBottom + marginTop; })
                     .attr("r", 2)
                     .style("fill", "#69b3a2")
 
@@ -741,6 +839,9 @@
             d3.select("#line__select2").on('change', updateLineChart)
             createGdpChart()
             d3.select("#scatter_select").on('change', updateScatterPlot)
+            createLineChart2()
+            d3.select('#line2__chart__container__select1').on('change', updateLineChart2)
+            d3.select('#line2__chart__container__select2').on('change', updateLineChart2)
 
 
         })()
