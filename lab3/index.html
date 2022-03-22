@@ -223,6 +223,7 @@
                 main.exit()
                     .remove()
             }
+
             const countryCodes = topoData.features.map((e) => e.id)
 
             const getTotalsByCountry = ({ date = null, key = 'total_cases' }) => {
@@ -289,14 +290,17 @@
 
             const createMap = async () => {
 
-                const onClick = (e, d) => {
+                function onClick(e, d) {
                     let index = selectedCountries.findIndex(element => element == d.id)
                     if (index != -1) {
                         selectedCountries.splice(index, 1)
+                        d3.select(this).attr('stroke', 'transparent')
                     } else {
+                        d3.select(this).attr('stroke', colorScale(selectedCountries.length)).attr('stroke-width', 1.5)
                         selectedCountries.push(d.id)
                     }
                     updateCountries()
+                    updateCountriesLineChart2()
                     console.log(selectedCountries);
                 }
 
@@ -486,8 +490,8 @@
                 }
 
                 if (y2 != null) {
-                    chart2({ svg, id: `${parentId}__chart${i}`, i, xScale, y2Scale, x, y2, chartMargin })
-                    d3.select(`#${parentId}__chart${i}`)
+                    chart2({ svg, id: `${parentId}__chart1000`, i, xScale, y2Scale, x, y2, chartMargin })
+                    d3.select(`#${parentId}__chart1000`)
                         .attr('class', 'chart')
                         .attr('marginLeft', chartMargin.left)
                         .attr('marginTop', chartMargin.top)
@@ -619,7 +623,7 @@
             const createLineChart2 = async () => {
                 const width = 400;
                 const height = 300;
-                const isoCodes = ['OWID_WRL', 'BGD', 'USA']
+                const isoCodes = ['OWID_WRL']
                 const worldData = dataByCountry['OWID_WRL']
                 const yKey = 'new_vaccinations_smoothed'
 
@@ -669,9 +673,58 @@
 
             }
 
+            const updateCountriesLineChart2 = async () => {
+                const parentId = 'line2__chart__container';
+
+                const svg = d3
+                    .select(`#${parentId}__svg`)
+
+                const charts = svg.selectAll('.chart');
+                if (charts.size() == selectedCountries.length) {
+                    updateLineChart2()
+                    return;
+                } else if (charts.size() > selectedCountries.length) {
+                    let deleteNum = charts.size() - selectedCountries.length;
+                    let deleteStart = selectedCountries.length
+                    for (let i = deleteStart; i < deleteStart + deleteNum; i++) {
+                        d3.select(`#${parentId}__chart${i}`).remove()
+                    }
+                } else {
+                    let addNum = selectedCountries.length - charts.size()
+                    let addStart = charts.size()
+                    for (let i = addStart; i < addStart + addNum; i++) {
+                        const localData = dataByCountry[selectedCountries[i]]
+                        const marginLeft = d3.select(`#${parentId}__chart0`).attr('marginLeft')
+                        const marginTop = d3.select(`#${parentId}__chart0`).attr('marginTop')
+                        const marginBottom = d3.select(`#${parentId}__chart0`).attr('marginBottom')
+                        console.log("Margin")
+                        console.log(marginLeft)
+                        console.log(marginTop)
+                        console.log(marginBottom)
+                        svg.append("path")
+                            .attr('id', `${parentId}__chart${i}`)
+                            .attr('class', 'chart')
+                            .attr('marginLeft', marginLeft)
+                            .attr('marginTop', marginTop)
+                            .attr('marginBottom', marginBottom)
+                            .datum(localData)
+                            .attr("fill", "none")
+                            .attr("stroke", colorScale(i))
+                            .attr("stroke-width", 1.5)
+                        // .attr("d", d3.line()
+                        //     .x(function (d) { return xScale(d[x]) + chartMargin.left })
+                        //     .y(function (d) { return yScale(d[yKey]) - chartMargin.bottom + chartMargin.top })
+                        // )
+                    }
+                }
+                updateLineChart2()
+
+            }
+
             const updateLineChart2 = async () => {
                 const parentId = 'line2__chart__container';
-                const isoCodes = ['OWID_WRL', 'BGD', 'USA']
+                const isoCodes = selectedCountries.length == 0 ? ['OWID_WRL'] : selectedCountries;
+
                 const worldData = dataByCountry['OWID_WRL']
 
                 const svg = d3
@@ -716,6 +769,9 @@
                 // Update the charts
                 for (let i = 0; i < charts.size(); i++) {
                     const chart = d3.select(`#${parentId}__chart${i}`)
+                    console.log(`#${parentId}__chart${i}`)
+                    console.log("CHART")
+                    console.log(chart.node())
                     const marginLeft = parseFloat(chart.attr('marginLeft'))
                     const marginTop = parseFloat(chart.attr('marginTop'))
                     const marginBottom = parseFloat(chart.attr('marginBottom'))
