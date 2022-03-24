@@ -16,6 +16,7 @@
         height: calc(100vh - 66px);
         position: fixed;
         background-color: #1e1e1e;
+        margin-top: 40px;
     }
 
     #container {
@@ -33,14 +34,20 @@
 
 <body style="display: flex;">
 
+    <!-- We add the list of countries selected under div#countries  -->
     <div id="countries">
 
     </div>
+    <!-- This contains all the charts -->
     <div id="container" style="display: flex;">
+        <!-- Container for Map Chart -->
         <div id="map__container">
-            <!-- <svg id="map" width="400" height="300"></svg> -->
+            <!-- Displays the map under svg#map -->
             <svg id="map"></svg>
+
+            <!-- The selection option for displaying data onto map -->
             <div style="display: flex;">
+                <!-- Data to display -->
                 <div>
                     <label for="map__select">Display:</label>
 
@@ -52,6 +59,7 @@
                         <!-- <option value="total_vaccinations">Vaccinations</option> -->
                     </select>
                 </div>
+                <!-- Option for values of the data -->
                 <div>
                     <label for="map__by__select">By:</label>
 
@@ -65,7 +73,7 @@
         <!-- <div id="pie__container">
                 <svg id="pie" width="400" height="300"></svg>
             </div> -->
-        <div id="line__container">
+        <!-- <div id="line__container">
             <div id="line__chart__container">
             </div>
             <label for="line__select1">Line 1:</label>
@@ -82,10 +90,18 @@
                 <option value="new_cases">New Cases</option>
                 <option value="new_deaths">New Deaths</option>
             </select>
-        </div>
+        </div> -->
+        <!-- Displays the line chart for selected countries -->
         <div id='line2__container'>
+            <!-- display the chart under this container -->
             <div id="line2__chart__container">
             </div>
+            <div id="line2__chart__container__slider">
+                <input type="range" min="1" max="100" value="50" class="slider"
+                    id="line2__chart__container__slider__input">
+                <p id="line2__chart__container__slider__text"></p>
+            </div>
+            <!-- Selection option for Type of data  -->
             <label for="line2__chart__container__select1">Y:</label>
 
             <select name="line2__chart__container__select1" id="line2__chart__container__select1">
@@ -119,6 +135,8 @@
     <script>
         (async () => {
             // Global Values
+            // const months = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December']
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
             const selectedCountries = []
             const colorScale = d3.scaleOrdinal().range(d3.schemeSet3);
             // ---------------------------------
@@ -126,13 +144,6 @@
             // ---------------------------------
 
             const margin = { top: 50, right: 150, bottom: 50, left: 150 };
-
-            // ---------------------------------
-            // ---------------------------------Scatter values---------------------------------
-            // ---------------------------------
-
-            scatterContainerWidth = 400
-            scatterContainerHeight = 300
 
             // ---------------------------------
             // ---------------------------------Map values---------------------------------
@@ -144,6 +155,9 @@
 
             // Setting background of Map
             mapSvg.style('background', '#1e1e1e')
+            let mapColorScale = d3.scaleSequential().domain([0, 50000000]).interpolator(d3.interpolateBlues);
+
+            // Setting the path and scale of the map
             const path = d3.geoPath();
             const projection = d3.geoMercator()
                 .scale(70)
@@ -152,9 +166,11 @@
 
 
             const loadDataset = async () => {
+                // Load the topology data 
                 const topoData = await d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson");
-
                 console.log('Loaded topo data')
+
+                // Load the covid dataset
                 const covid = await d3.csv('./data/owid-covid-data.csv', (d) => {
                     // TODO:
                     d.dateString = d.date
@@ -162,34 +178,42 @@
                     d.total_vaccinations_per_million = d.total_vaccinations / 1000000
                     return d
                 });
-                // console.log(covid[0])
                 console.log('Loaded covid data')
 
                 return [covid, topoData]
             }
+
+            // Load data
             const allData = await loadDataset()
+            // Covid Dataet
             const dataset = allData[0]
+            // Topology data
             const topoData = allData[1]
+            // Object that has key as iso code and the value to be the country name
             const countries = {}
             topoData.features.forEach(e => { countries[e.id] = e.properties.name })
-            // Modified dataset to select data by country
-            const dataByCountry = {}
 
+            // Dataset that seperates the covid data into countries
+            // The key = iso_code of the country
+            const dataByCountry = {}
             for (let i = 0; i < dataset.length; i++) {
                 try {
                     dataByCountry[dataset[i]['iso_code']].push(dataset[i])
 
                 } catch (error) {
                     dataByCountry[dataset[i]['iso_code']] = [dataset[i]]
-
                 }
             }
+
+            // Displays the updated selected countries and s
             const updateCountries = () => {
+                // Get selection
                 const main = d3
                     .select('#countries')
                     .selectAll('div.country')
                     .data(selectedCountries)
 
+                // Add the divs for each countries selected
                 const divs = main
                     .enter()
                     .append('div')
@@ -200,76 +224,85 @@
                     .style('height', '22px')
                     .style('padding', '0px 8px')
 
+                // Add a p tag with the country name
                 divs
                     .append('p')
                     .style('color', 'white')
                     .text((d) => countries[d])
 
+                // Add a div with a color that is used in the chart
+                // for the corresponding country
                 divs
                     .append('div')
                     .style('width', '20px')
                     .style('height', '5px')
                     .style('background', (d, i) => colorScale(i))
 
+                // Get the update state
                 const merged = divs
                     .merge(main)
 
+                // Update the name of the country
                 merged
                     .select('p')
                     .text(d => countries[d])
 
+                // Change the color corresponding to the country color in charts
                 merged.select('div').style('background', (d, i) => colorScale(i))
 
+                // remove the country's div if unselected
                 main.exit()
                     .remove()
             }
 
-            const countryCodes = topoData.features.map((e) => e.id)
-
+            // Get total cases or vacs or deaths of each countyr
             const getTotalsByCountry = ({ date = null, key = 'total_cases' }) => {
                 const data = []
-                for (let i = 0; i < countryCodes.length; i++) {
-                    let filtered = dataset.filter((e) => { return e['iso_code'] == countryCodes[i] })
-                    if (filtered.length == 0) {
-                        continue
+                // Get the keys of the object and iterate over them
+                const keys = Object.keys(dataByCountry);
+                for (let objectKey of keys) {
+                    let d = dataByCountry[objectKey]
+                    let value = 0
+                    let gdp = 0
+                    let pop = d[0]['population']
+                    if (date != null) {
+                        d = d.filter((e) => e.date <= date)
                     }
-
-                    if (date == null) {
-                        let value = 0
-                        let gdp = 0
-                        let pop = filtered[0]['population']
-                        for (let j = filtered.length - 1; j >= 0; j--) {
-                            value = filtered[j][key]
-
-                            if (parseInt(value) > 0) {
-                                value = parseInt(value)
-                                gdp = filtered[j]['gdp_per_capita']
-                                break;
-                            }
+                    // Gets the last known total_value from the data
+                    // This is because the last value of the data does not necessarily contain the lastknown total_value
+                    for (let j = d.length - 1; j >= 0; j--) {
+                        value = d[j][key]
+                        if (parseInt(value) > 0) {
+                            value = parseInt(value)
+                            gdp = d[j]['gdp_per_capita']
+                            break;
                         }
-                        data.push({ 'id': countryCodes[i], 'value': value, 'pop': pop, 'gdp': gdp })
                     }
-
+                    // Add the total data
+                    data.push({ 'id': objectKey, 'value': value, 'pop': pop, 'gdp': gdp })
                 }
                 return data
-
             }
-            // const totalCases = getTotalCasesByCountry()
-            let mapColorScale = d3.scaleSequential().domain([0, 50000000]).interpolator(d3.interpolateBlues);
-            // console.log(dataset)
+
+            // gets the values from the selection option
             const getMapValues = () => {
                 const key = d3.select('#map__select').property("value")
                 const byKey = d3.select('#map__by__select').property("value")
                 // console.log(value)
-                const totals = getTotalsByCountry({ key })
+                // TODO:
+                const slider = d3.select(`#line2__chart__container__slider__input`)
+                const sliderDate = new Date(slider.attr('date'))
+                console.log(sliderDate)
+                const totals = getTotalsByCountry({ date: sliderDate.getFullYear() == 1970 ? null : sliderDate, key })
                 let values = []
                 if (byKey == 'percentage') {
                     totals.forEach(e => { e.value = e.value / e.pop })
                 }
                 values = totals.map(e => e.value)
 
+                // Setting the color of the map
                 mapColorScale = d3.scaleSequential().domain([d3.quantile(values, .05), d3.quantile(values, 0.95)]).interpolator(d3.interpolateBlues);
-
+                // Setting aspect ratio for map
                 mapSvg.attr("preserveAspectRatio", "xMinYMin meet")
                     .attr("viewBox", `0 0 ${mapWidth} ${mapHeight}`)
 
@@ -278,9 +311,13 @@
 
             const onMapSelectChange = () => {
                 const totals = getMapValues()
+                // change the map to the new values set by the option selected
                 mapSvg
                     .select('g')
                     .selectAll('path')
+                    .transition()
+                    .ease(d3.easeCubic)
+                    .duration(1000)
                     .attr("fill", function (d) {
 
                         const scale = totals.find(e => { return e.id == d.id })
@@ -289,35 +326,44 @@
             }
 
             const createMap = async () => {
-
+                // Define the onClick function of the countries
                 function onClick(e, d) {
+                    // check if the country that is clicked is already selected 
                     let index = selectedCountries.findIndex(element => element == d.id)
                     if (index != -1) {
-                        selectedCountries.splice(index, 1)
-                        d3.select(this).attr('stroke', 'transparent')
+                        // if selected then remove unless its the only country selected
+                        if (selectedCountries.length > 1) {
+                            selectedCountries.splice(index, 1)
+                            d3.select(this).attr('stroke', 'transparent')
+                            // Unselect the corresponding gdp dot
+                            d3.select(`#dot_${d.id}`).attr('class', null).style('fill', '#69b3a2')
+                        }
                     } else {
+                        // Select the corresponding gdp dot
+                        d3.select(`#dot_${d.id}`).attr('class', 'selected').style('fill', '#a45fe1')
+                        // Add outline to the country selected
                         d3.select(this).attr('stroke', colorScale(selectedCountries.length)).attr('stroke-width', 1.5)
                         selectedCountries.push(d.id)
                     }
+                    // Update the countries in the lineChart2 and update the displayed list of countries
                     updateCountries()
                     updateCountriesLineChart2()
-                    // console.log(selectedCountries);
                 }
-
+                // get the values needed for map 
                 const values = getMapValues()
 
+                // Fill the map with colors corresponding to the data
                 mapSvg.append("g")
                     .selectAll("path")
                     .data(topoData.features)
                     .join("path")
                     // draw each country
+                    .attr('id', (d) => `map_${d.id}`)
                     .attr("d", d3.geoPath()
                         .projection(projection)
                     )
                     // set the color of each country by a certain selected value
                     .attr("fill", function (d) {
-
-                        // d.total = dataset[d.id] || 0;
                         const scale = values.find(e => { return e.id == d.id })
                         return mapColorScale(scale ? scale.value : 0)
                     })
@@ -570,19 +616,32 @@
                 const height = 300;
                 // Setting up X axis
                 let x = d3.scaleLinear()
-                    .domain([0, d3.max(data, (d) => +(d.gdp))])
+                    .domain([0, d3.max(data, (d) => +(d.gdp / 1000))])
                     .range([0, width]);
                 // New Cases
                 let y = d3.scaleLinear()
                     .domain([0, d3.max(data, (d) => +(d.value / d.pop))])
                     .range([height, 0]);
+                const parentId = 'scatter__chart__container'
+                const tooltip = d3
+                    .select(`#${parentId}`)
+                    .append('div')
+                    .attr('id', `${parentId}__tooltip`)
+                    .style('position', 'absolute')
+                    .style('background', 'rgba(255,255,255, 1)')
+                    .style('padding', '8px')
+                    .style('border-radius', '10px')
+                    .style('border', '1px solid black')
+                    .style('display', 'none')
+                    .style('width', '100px')
+
 
                 createChart({
                     chartWidth: width,
                     chartHeight: height,
                     data: data,
-                    parentId: 'scatter__chart__container',
-                    xLabel: "GDP per capita",
+                    parentId: parentId,
+                    xLabel: "GDP per capita (Thousands)",
                     y1Label: "Total Vaccination(millions)",
                     xScale: x,
                     yScale: y,
@@ -595,18 +654,39 @@
 
                         chart.call(d3.brush().extent([[0, 0], [width, height]]).on('brush', onBrushGdp))
 
-                        chart
+                        const entry = chart
                             .selectAll("dot")
                             .data(data)
                             .enter()
+                        const circle = entry
                             .append("circle")
-                            .attr("cx", function (d) { return xScale(d[x]) + chartMargin.left; })
+                            .attr('id', d => `dot_${d.id}`)
+                            .on('mouseover', function (e, d) {
+                                tooltip
+                                    .style('display', 'block')
+                                    .text(`Country: ${countries[d.id] ?? d.id}\nGdp: ${d.gdp}\nPopulation: ${d.pop}`)
+                            })
+                            .on('mousemove', function (e, d) {
+                                const [x, y] = d3.pointer(e, circle.node())
+                                tooltip
+                                    .style('transform', `translate(${x}px, ${y + 90}px)`)
+                            })
+                            .on('mouseout', function (e, d) {
+                                tooltip
+                                    .style('display', 'none')
+                            })
+                        circle
+                            .transition()
+                            .ease(d3.easeCubic)
+                            .duration(1000)
+                            .attr("cx", function (d) { return xScale(d[x] / 1000) + chartMargin.left; })
                             .attr("cy", function (d) { return yScale(d[y[0]] / d.pop) - chartMargin.bottom + chartMargin.top; })
                             .attr("r", 2)
                             .style("fill", "#69b3a2")
+
+
                     },
                 })
-
 
             }
 
@@ -625,10 +705,12 @@
 
                     if (cx > selection[0][0] && cx < selection[1][0] && cy > selection[0][1] && cy < selection[1][1]) {
                         if (selectedCountries.findIndex(e => e == d.id) == -1) {
-                            selectedCountries.push(d.id)
-                            dot.attr('class', 'selected').style('fill', '#a45fe1')
-                            updateCountries()
-                            updateCountriesLineChart2()
+                            const node = d3.select(`#map_${d.id}`).node()
+                            if (node != null) {
+                                node.dispatchEvent(new Event('click'))
+                                dot.attr('class', 'selected').style('fill', '#a45fe1')
+                            }
+
                         }
                     }
                 })
@@ -636,8 +718,11 @@
 
             }
 
-
-
+            // When new countries are selected 
+            // The domain and the range needs to be updated
+            // accoriding to the value of the country with highest value
+            // in a certain subject, for example, new cases
+            // This function tries to find the country with the highest value 
             const getMaxCountryData = (isoCodes, yKey, divide) => {
                 let maxCountry = null;
                 let maxY = 0;
@@ -652,47 +737,73 @@
                 return maxCountry
             }
 
+            // Create the line chart for value comparision between countries
             const createLineChart2 = async () => {
+                // Initial values
                 const width = 400;
                 const height = 300;
+                // Initial get the data of the world
                 const isoCodes = ['OWID_WRL']
                 const worldData = dataByCountry['OWID_WRL']
                 const yKey = 'new_vaccinations_smoothed'
-
-                // const worldData = dataset.filter(e => e.iso_code == 'OWID_WRL')
-                // const usaData = dataset.filter(e => e.iso_code == 'USA')
-                // const filteredData =
-                // const data = usaData.map(d => d.)
-                // Setting up X axis
-
+                const parentId = 'line2__chart__container'
                 // Get the max country
                 let maxCountry = getMaxCountryData(isoCodes, yKey)
 
+                // get the data of the max country
                 const data = dataByCountry[maxCountry]
-                // console.log(data)
 
+                // Set up the x and y axis of the chart
                 var x = d3.scaleTime()
                     .domain(d3.extent(worldData, function (d) { return d.date; }))
                     .range([0, width]);
                 var y1 = d3.scaleLinear()
                     .domain([0, d3.max(data, (d) => +(d[yKey]))])
                     .range([height, 0]);
+
+                const sliderText = d3.select(`#${parentId}__slider__text`)
+                const sliderMax = x.range()[1]
+                const slider = d3
+                    .select(`#${parentId}__slider__input`)
+                    .style('width', `${sliderMax}px`)
+                    .attr('min', 0)
+                    .attr('max', sliderMax)
+                    .attr('value', sliderMax)
+                    .on('input', (e) => {
+                        slider.attr('max', x.range()[1])
+                        const dateText = (x.invert(e.target.value)).toLocaleDateString('en-us', dateOptions)
+                        sliderText.text(`Timeline until: ${dateText} `)
+                        slider.attr('date', dateText)
+                    })
+                    .on('mouseup', (e) => {
+                        updateLineChart2()
+                        updateScatterPlot()
+                        onMapSelectChange()
+                    })
+                sliderText.text(`Timeline until: ${(x.invert(sliderMax)).toLocaleDateString('en-us', dateOptions)} `)
+
+                // Create the chart
                 createChart({
                     chartWidth: width,
                     chartHeight: height,
                     data: data,
-                    parentId: 'line2__chart__container',
+                    parentId: parentId,
                     xLabel: "Timeline of Covid 19",
-                    y1Label: "New Vaccinations / Population",
+                    y1Label: "New Vaccinations",
                     xScale: x,
                     yScale: y1,
                     x: "date",
                     y: isoCodes,
                     chart1: ({ svg, id, i, xScale, yScale, x, y, chartMargin }) => {
+                        // Get the data of countries 
                         const localData = dataByCountry[y[i]]
+                        // Append the path to create the line chart
                         svg.append("path")
                             .attr('id', id)
                             .datum(localData)
+                            .transition()
+                            .ease(d3.easeCubic)
+                            .duration(1000)
                             .attr("fill", "none")
                             .attr("stroke", colorScale(i))
                             .attr("stroke-width", 1.5)
@@ -706,12 +817,16 @@
             }
 
             const updateCountriesLineChart2 = async () => {
+                // set the parentId of the line chart
                 const parentId = 'line2__chart__container';
 
                 const svg = d3
                     .select(`#${parentId}__svg`)
 
+                // Select all the lines or path under svg
                 const charts = svg.selectAll('.chart');
+
+                // Add or delete line charts and then update the line chart
                 if (charts.size() == selectedCountries.length) {
                     updateLineChart2()
                     return;
@@ -725,11 +840,13 @@
                     let addNum = selectedCountries.length - charts.size()
                     let addStart = charts.size()
                     for (let i = addStart; i < addStart + addNum; i++) {
+                        // Get the data of the country and the margins 
                         const localData = dataByCountry[selectedCountries[i]]
                         const marginLeft = d3.select(`#${parentId}__chart0`).attr('marginLeft')
                         const marginTop = d3.select(`#${parentId}__chart0`).attr('marginTop')
                         const marginBottom = d3.select(`#${parentId}__chart0`).attr('marginBottom')
 
+                        // Append the line chart
                         svg.append("path")
                             .attr('id', `${parentId}__chart${i}`)
                             .attr('class', 'chart')
@@ -740,10 +857,6 @@
                             .attr("fill", "none")
                             .attr("stroke", colorScale(i))
                             .attr("stroke-width", 1.5)
-                        // .attr("d", d3.line()
-                        //     .x(function (d) { return xScale(d[x]) + chartMargin.left })
-                        //     .y(function (d) { return yScale(d[yKey]) - chartMargin.bottom + chartMargin.top })
-                        // )
                     }
                 }
                 updateLineChart2()
@@ -751,17 +864,25 @@
             }
 
             const updateLineChart2 = async () => {
+                // set the parentId
                 const parentId = 'line2__chart__container';
+                // set the iso_codes to selected countries
                 const isoCodes = selectedCountries.length == 0 ? ['OWID_WRL'] : selectedCountries;
 
-                const worldData = dataByCountry['OWID_WRL']
+                // X axis is set by the domain of dates
+                // Therefore, we set the dates from World Data
+                const slider = d3.select(`#${parentId}__slider__input`)
+                const sliderDate = new Date(slider.attr('date'))
+                const worldData = dataByCountry['OWID_WRL'].filter((d) => d.date < sliderDate)
 
                 const svg = d3
                     .select(`#${parentId}__svg`)
 
+                // Get Bounded Height and Width
                 let height = parseFloat(svg.attr('viewHeight'))
                 let width = parseFloat(svg.attr('viewWidth'))
 
+                // Get the select option values
                 const selection = {
                     value1: d3.select(`#${parentId}__select1`).property('value'),
                     text1: d3.select(`#${parentId}__select1 option:checked`).text(),
@@ -772,12 +893,13 @@
                 const getDivideBy = (d) => {
                     return d[selection.value2] ?? 1
                 }
-                // console.log('selectionValue1: ' + selection.value1)
 
+                // get Max Country
                 let maxCountry = getMaxCountryData(isoCodes, selection.value1, selection.value2)
-
+                // get Data
                 const data = dataByCountry[maxCountry]
 
+                // define X scale and y scale
                 var xScale = d3.scaleTime()
                     .domain(d3.extent(worldData, function (d) { return d.date; }))
                     .range([0, width]);
@@ -786,16 +908,22 @@
                     .domain([0, d3.max(data, (d) => +(d[selection.value1] / getDivideBy(d)))])
                     .range([height, 0]);
 
+                svg.select(`#${parentId}__x__axis`)
+                    .transition()
+                    .duration(1000)
+                    .ease(d3.easeCubic)
+                    .call(d3.axisBottom(xScale))
+                // Update the y axis
                 svg
                     .select(`#${parentId}__y1__axis`)
                     .call(d3.axisLeft(yScale));
-
+                // Update the y_label
                 const yLabel = `${selection.text1} ${selection.text2 != '1' ? `/ ${selection.text2}` : ''}`
 
                 d3.select(`#${parentId}__y1label`).text(yLabel)
 
-                const charts = svg.selectAll('.chart')
                 // Update the charts
+                const charts = svg.selectAll('.chart')
                 for (let i = 0; i < charts.size(); i++) {
                     const chart = d3.select(`#${parentId}__chart${i}`)
                     const marginLeft = parseFloat(chart.attr('marginLeft'))
@@ -809,130 +937,45 @@
                             .y(function (d) { return yScale(d[selection.value1] / getDivideBy(d)) - marginBottom + marginTop; })
                         )
 
+                    // Apply Animation
+                    // https://stackoverflow.com/questions/17498830/animate-svg-path-with-d3js
+                    var totalLength = chart.node().getTotalLength();
+                    chart
+                        .attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength)
+                        .transition()
+                        .duration(800)
+                        .ease(d3.easeCubic)
+                        .attr("stroke-dashoffset", 0)
+
 
                 }
 
-                // Scatter GDP
             }
-
-            const updateLineChart = () => {
-                // Get Values from the change
-                const line1SelectValue = d3.select('#line__select1').property('value')
-                const line1SelectText = d3.select('#line__select1 option:checked').text()
-                const line2SelectValue = d3.select('#line__select2').property('value')
-                const line2SelectText = d3.select('#line__select2 option:checked').text()
-
-                const svg = d3.select('#line__chart__container').select('svg')
-
-                // get data
-                const data = dataset.filter(e => e.iso_code == 'OWID_WRL')
-
-                // Setting up right Y Axis
-                var x = d3.scaleTime()
-                    .domain(d3.extent(data, function (d) { return d.date; }))
-                    .range([0, width]);
-                // People Vaccinated
-                var y1 = d3.scaleLinear()
-                    .domain([0, d3.max(data, (d) => +d[line1SelectValue])])
-                    .range([height, 0]);
-                svg
-                    .select('#line__chart__y1__axis')
-                    .call(d3.axisLeft(y1));
-
-                // New Cases
-                var y2 = d3.scaleLinear()
-                    .domain([0, d3.max(data, (d) => +d[line2SelectValue])])
-                    .range([height, 0]);
-                svg.select('#line__chart__y2__axis')
-                    .call(d3.axisRight(y2));
-
-                // Update Line1 Path
-                svg.select("#line_path1")
-                    .datum(data)
-                    .attr("d", d3.line()
-                        .x(function (d) { return x(d.date) + margin.left })
-                        .y(function (d) { return y1(d[line1SelectValue]) + margin.top })
-                    )
-
-                svg.select("#line_path2")
-                    .datum(data)
-                    .attr("d", d3.line()
-                        .x(function (d) { return x(d.date) + margin.left })
-                        .y(function (d) { return y2(d[line2SelectValue]) + margin.top })
-                    )
-
-
-                svg.select(".y1_label")
-                    .attr("x", -(300))
-                    .attr("y", 20)
-                    .attr('transform', `rotate(-90)`)
-                    .text(`Number of ${line1SelectText}`);
-
-                svg.select(".y2_label")
-                    .attr("x", -(300))
-                    .attr("y", width + margin.left + 120)
-                    .attr('transform', `rotate(-90)`)
-                    .text(`Number of ${line2SelectText}`);
-
-            }
-
-
-            // const createGdpChart = async () => {
-            //     let data = getTotalsByCountry({ key: 'people_vaccinated' })
-            //     data = data.filter(d => d.gdp > 0)
-            //     const svg = d3
-            //         .select('#scatter__chart__container')
-            //         .append("svg")
-            //         .attr("preserveAspectRatio", "xMinYMin meet")
-            //         .attr("viewBox", `0 0 ${scatterContainerWidth} ${scatterContainerHeight}`)
-            //         .append("g")
-            //         .attr('transform', `translate(${scatterMargin.left}, ${scatterMargin.right})`)
-
-            //     var x = d3.scaleLinear()
-            //         .domain([d3.min(data, d => +d.gdp), d3.max(data, d => +d.gdp)])
-            //         .range([0, scatterWidth])
-            //     svg.append("g")
-            //         .attr('id', 'scatter__x__axis')
-            //         .attr("transform", "translate(0," + scatterHeight + ")")
-            //         .call(d3.axisBottom(x));
-            //     const maxY = d3.max(data, (d) => +(d.value / d.pop))
-            //     var y = d3.scaleLinear()
-            //         .domain([0, maxY])
-            //         .range([scatterHeight, 0]);
-            //     svg.append("g")
-            //         .attr('id', 'scatter__y__axis')
-            //         .call(d3.axisLeft(y));
-
-            //     // Scatter GDP
-            //     svg.append("g")
-            //         .selectAll("dot")
-            //         .data(data)
-            //         .enter()
-            //         .append("circle")
-            //         .attr("cx", function (d) { return x(d.gdp); })
-            //         .attr("cy", function (d) { return y(d.value / d.pop); })
-            //         .attr("r", 2)
-            //         .style("fill", "#69b3a2")
-
-            // }
 
             const updateScatterPlot = () => {
+                // Get the selection values
                 const value = d3.select("#scatter_select").property("value")
                 const text = d3.select("#scatter_select option:checked").text()
-                // console.log(`Text: ${text}`)
-                let data = getTotalsByCountry({ key: value })
+                // get date
+                const slider = d3.select(`#line2__chart__container__slider__input`)
+                const sliderDate = new Date(slider.attr('date'))
+                // Get the data
+                let data = getTotalsByCountry({ date: sliderDate, key: value })
                 data = data.filter(d => d.gdp > 0)
+
                 let parentId = "#scatter__chart__container"
 
+                // Select SVG
                 const svg = d3
                     .select(`${parentId}__svg`)
 
+                // Get the bound Height and width
                 let height = parseFloat(svg.attr('viewHeight'))
                 let width = parseFloat(svg.attr('viewWidth'))
-                // console.log(`Width: ${width}, Height: ${height}`)
-
+                // Define the x and y scales
                 var x = d3.scaleLinear()
-                    .domain([0, d3.max(data, d => +d.gdp)])
+                    .domain([0, d3.max(data, d => +(d.gdp / 1000))])
                     .range([0, width])
                 d3.select(`${parentId}__x__axis`)
                     .call(d3.axisBottom(x));
@@ -945,35 +988,36 @@
 
                 // Update the X Label
                 d3.select(`${parentId}__y1label`).text(text)
-
+                // Select the chart
                 const chart = d3.select(`${parentId}__chart0`)
-                // Scatter GDP
+                // Get the bound margins
                 const marginLeft = parseFloat(chart.attr('marginLeft'))
                 const marginTop = parseFloat(chart.attr('marginTop'))
                 const marginBottom = parseFloat(chart.attr('marginBottom'))
+                // Update the circles
                 chart.selectAll("circle")
                     .data(data)
-                    .attr("cx", function (d) { return x(d.gdp) + marginLeft; })
+                    .transition()
+                    .ease(d3.easeCubic)
+                    .duration(1000)
+                    .attr("cx", function (d) { return x(d.gdp / 1000) + marginLeft; })
                     .attr("cy", function (d) { return y(d.value / d.pop) - marginBottom + marginTop; })
                     .attr("r", 2)
                     .style("fill", "#69b3a2")
-
-
             }
 
-            // 
+            // Call All the functions
             createMap()
             d3.select("#map__select").on('change', onMapSelectChange)
             d3.select("#map__by__select").on('change', onMapSelectChange)
-            createLineChart()
-            d3.select("#line__select1").on('change', updateLineChart)
-            d3.select("#line__select2").on('change', updateLineChart)
             createGdpChart()
             d3.select("#scatter_select").on('change', updateScatterPlot)
             createLineChart2()
             d3.select('#line2__chart__container__select1').on('change', updateLineChart2)
             d3.select('#line2__chart__container__select2').on('change', updateLineChart2)
-
+            // createLineChart()
+            // d3.select("#line__select1").on('change', updateLineChart)
+            // d3.select("#line__select2").on('change', updateLineChart)
 
         })()
     </script>
